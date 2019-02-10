@@ -1,0 +1,75 @@
+\documentclass{article}
+% Comment the following line to NOT allow the usage of umlauts
+\usepackage[utf8]{inputenc}
+% Uncomment the following line to allow the usage of graphics (.png, .jpg)
+\usepackage{geometry}
+\geometry{left=3cm,right=3cm,top=3cm,bottom=3cm}
+
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[colorlinks,linkcolor=NavyBlue,anchorcolor=red,citecolor=green]{hyperref}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{bm}
+\usepackage{array,makecell}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{amsmath,amsfonts}
+\usepackage[thmmarks,amsmath]{ntheorem}
+\theorembodyfont{\upshape}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\theoremstyle{nonumberplain}
+\theoremheaderfont{\itshape}
+\theorembodyfont{\normalfont}
+\theoremsymbol{\\ \rightline{$\square$}}
+\newtheorem{proof}{Proof.}
+
+% Start the document
+\begin{document}
+	\begin{center}
+	\textsc{\Huge Machine Learning}	
+\end{center}
+\vspace{1em} 
+
+% Create a new 1st level heading
+\section{Terminology}
+
+\begin{itemize}
+	\item Data generating process: $(X,Y)$ is a $(p+1)-\text{dimensional}$ random vector with joint distribution $\mathrm{P}(x,y)$.
+	\begin{itemize}
+		\item Input vector: $X\in D\subset\mathbb{R}^p$.
+		\item Output vector: $Y\in E\subset\mathbb{R}$.
+		\item Data: Given the sample $\{(X_1,Y_1),(X_2,Y_2),\cdots,(X_N,Y_N)\}$ following the distribution $\mathrm{P}(x,y)$, The training data or text data $T=\{(x_1,y_1),(x_2,y_2),\cdots,(x_N,y_N)\}$ consist of the realization values of the sample.
+	\end{itemize}	
+	\item Objective: Find a decision function $\hat{f}$ to minimize the expected loss
+	\[
+	\min_{\hat{f}\in\mathcal{F}}\mathrm{E}(L(Y,\hat{f}(X)))
+	\]
+	\begin{itemize}
+		\item Decision function: $\hat{f}:\mathbb{R}^p\supset D\longrightarrow\mathbb{R}$ serves to produce the prediction $\hat{y}=\hat{f}(x)$ of $Y$, provided a specified value $x$ of $X$. 
+		\item Loss function: $L(Y,\hat{f}(X))$ normally has the form of 
+		\[
+		L_2=(Y-\hat{f}(X))^2\ \text{ or }\ L_1=|Y-\hat{f}(X)|.
+		\]
+		\item Hypothesis space: $\mathcal{F}$ is a collection of all decision functions $\hat{f}$ to be selected. In some cases, we suppose that as a candidate $\hat{f}$ can be specified by several parameters. Thus $\mathcal{F}=\{\hat{f}_\theta:Y=\hat{f}_\theta(X),\;\theta\in\mathbb{R}^n\}$ can be described by the parametric space $\Theta=\{\theta:Y=\hat{f}_\theta(X),\;\theta\in\mathbb{R}^n\}$.
+	\end{itemize}
+	\item Optimization strategies: \\
+	empirical risk minimization:
+	\[
+	\min_{\hat{f}\in\mathcal{F}}\frac{1}{N}\sum_{i=1}^{N}L(y_i,\hat{f}(x_i))
+	\]
+	structural risk minimization:
+	\[
+	\min_{\hat{f}\in\mathcal{F}}\frac{1}{N}\sum_{i=1}^{N}L(y_i,\hat{f}(x_i))
+	\]
+\end{itemize} 
+
+
+
+
+
+\end{document}
