@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass{report}
 % Comment the following line to NOT allow the usage of umlauts
 \usepackage[utf8]{inputenc}
 % Uncomment the following line to allow the usage of graphics (.png, .jpg)
@@ -30,46 +30,96 @@
 
 % Start the document
 \begin{document}
-	\begin{center}
+	\begin{center}	
+	\vspace{1em} 
 	\textsc{\Huge Machine Learning}	
-\end{center}
-\vspace{1em} 
+	\end{center}
+
 
 % Create a new 1st level heading
-\section{Terminology}
+\chapter{Introduction}
+
+\section{Terminology and framework}
 
 \begin{itemize}
 	\item Data generating process: $(X,Y)$ is a $(p+1)-\text{dimensional}$ random vector with joint distribution $\mathrm{P}(x,y)$.
 	\begin{itemize}
 		\item Input vector: $X\in D\subset\mathbb{R}^p$.
-		\item Output vector: $Y\in E\subset\mathbb{R}$.
+		\item Output vector: $Y\in G\subset\mathbb{R}$.
 		\item Data: Given the sample $\{(X_1,Y_1),(X_2,Y_2),\cdots,(X_N,Y_N)\}$ following the distribution $\mathrm{P}(x,y)$, The training data or text data $T=\{(x_1,y_1),(x_2,y_2),\cdots,(x_N,y_N)\}$ consist of the realization values of the sample.
 	\end{itemize}	
-	\item Objective: Find a decision function $\hat{f}$ to minimize the expected loss
+	\item Objective: Find a optimal decision function $\hat{f}$ to minimize the expected prediction loss (EPE)
 	\[
-	\min_{\hat{f}\in\mathcal{F}}\mathrm{E}(L(Y,\hat{f}(X)))
+	\min_{f\in\mathcal{F}}\mathrm{E}[L(Y,f(X))]
 	\]
 	\begin{itemize}
-		\item Decision function: $\hat{f}:\mathbb{R}^p\supset D\longrightarrow\mathbb{R}$ serves to produce the prediction $\hat{y}=\hat{f}(x)$ of $Y$, provided a specified value $x$ of $X$. 
-		\item Loss function: $L(Y,\hat{f}(X))$ normally has the form of 
+		\item Decision function: $f:\mathbb{R}^p\supset D\longrightarrow\mathbb{R}$ serves to produce the prediction $f(x)$ of $Y$, provided a specified value $x$ of $X$. 
+		\item Loss function: $L(Y,f(X))$ normally has the form of 
 		\[
-		L_2=(Y-\hat{f}(X))^2\ \text{ or }\ L_1=|Y-\hat{f}(X)|.
+		L_2=(Y-f(X))^2\ \text{ or }\ L_1=|Y-f(X)|\ \text{ or }\ L_I=1_{Y\ne f(X)}.
 		\]
-		\item Hypothesis space: $\mathcal{F}$ is a collection of all decision functions $\hat{f}$ to be selected. In some cases, we suppose that as a candidate $\hat{f}$ can be specified by several parameters. Thus $\mathcal{F}=\{\hat{f}_\theta:Y=\hat{f}_\theta(X),\;\theta\in\mathbb{R}^n\}$ can be described by the parametric space $\Theta=\{\theta:Y=\hat{f}_\theta(X),\;\theta\in\mathbb{R}^n\}$.
+		\item Hypothesis space: $\mathcal{F}$ is a collection of all potential decision functions $f$ to be selected. In some cases, we suppose that $f$ as a candidate can be specified by several parameters. Thus $\mathcal{F}=\{f_\theta:Y=f_\theta(X),\;\theta\in\mathbb{R}^n\}$ can be described by the parametric space $\Theta=\{\theta:Y=f_\theta(X),\;\theta\in\mathbb{R}^n\}$.
 	\end{itemize}
 	\item Optimization strategies: \\
 	empirical risk minimization:
 	\[
-	\min_{\hat{f}\in\mathcal{F}}\frac{1}{N}\sum_{i=1}^{N}L(y_i,\hat{f}(x_i))
+	\min_{f\in\mathcal{F}}\frac{1}{N}\sum_{i=1}^{N}L(y_i,f(x_i))
 	\]
 	structural risk minimization:
 	\[
-	\min_{\hat{f}\in\mathcal{F}}\frac{1}{N}\sum_{i=1}^{N}L(y_i,\hat{f}(x_i))
+	\min_{f\in\mathcal{F}}\frac{1}{N}\sum_{i=1}^{N}L(y_i,f(x_i))+\lambda J(\hat{f})
 	\]
 \end{itemize} 
-
-
-
+\section{Squared error loss}
+\subsection{Quantitative output variables}
+Let $Y\in\mathbb{R}$ be quantitative variable. And we take the most
+common and convenient loss function, squared error loss
+\[
+L(Y,f(X))=(Y-f(X))^2.
+\]That leads to the problem of minimizing the expected prediction error
+\[
+\min_{f\in\mathcal{F}}\mathrm{E}[(Y-f(X))^2]=\min_{f\in\mathcal{F}}\int (y-f(x))^2\;\mathrm{dP}(x,y).
+\]
+Note that
+\[\mathrm{E}[(Y-f(X))^2]=\mathrm{E}[\mathrm{E}[(Y-f(X))^2|X]]=\int\mathrm{E}[(Y-f(x))^2|X=x]\;\mathrm{dP}(x).\]
+It suffices to minimize EPE pointwise, that is, 
+\begin{align*}
+&\ \ \min_{f(x)\in\mathbb{R}}\mathrm{E}[(Y-f(x))^2|X=x]\\
+&=\min_{c\in\mathbb{R}}\mathrm{E}[(Y-c)^2|X=x]\\
+&=\min_{c\in\mathbb{R}}\mathrm{Var}[Y-c|X=x]-(\mathrm{E}[(Y-c)|X=x])^2\\
+&=\min_{c\in\mathbb{R}}\mathrm{Var}[Y|X=x]-(\mathrm{E}[Y|X=x]-c)^2.\\
+\end{align*}
+We see the optimal solution is
+\[
+\hat{f}(x) = \mathrm{E}[Y|X=x],
+\]
+Thus the best prediction of $Y$ at any point $X = x$ is the conditional expectation, when best is measured by average squared error. \\
+Next we are developing effective methods to estimate the conditional expectation $\mathrm{E}[Y|X=x]$.
+\subsection{Categorical output variable}
+Assume that $Y\in G$ is a categorical variable and that the set of possible classes $G=\{G_1,G_2,\cdots,G_K\}$. This time the 0–1 loss function 
+\[
+L(Y,\hat{f}(X))=1_{Y\ne\hat{f}(X)}=
+\begin{cases}
+0,&Y=\hat{f}(X),\\
+1,&Y\ne\hat{f}(X),
+\end{cases}
+\]
+is adopted for simplification. Likewise it suffices to minimize EPE pointwise.
+\begin{align*}
+&\ \ \min_{\hat{f}(x)\in G}\mathrm{E}[1_{Y\ne\hat{f}(x)}|X=x]\\
+&=\min_{g\in G}\mathrm{E}[1-1_{Y=g}|X=x]\\
+&=\min_{g\in G}1-\mathrm{P}(Y=g|X=x)
+\end{align*}
+And the optimal solution is
+\[
+\hat{f}(x)=\max_{g\in G} \mathrm{P}(Y=g|X=x)
+\]
+\section{Nearest-neighbor methods}
+Nearest-neighbor methods use those observations in the training set $T$ closest in input space to $x$ to estimate the aforementioned conditional expectation  $\mathrm{E}[Y|X=x]$. Specifically, the $k$-nearest neighbor fit for $\hat{Y}$ is defined as follows:
+\[
+\hat{Y}=\hat{f}(x)=\dfrac{1}{k}\sum_{i:x_i\in N_k(x)}y_i,
+\]
+where $N_k(x)$ is the neighborhood of $x$ defined by the $k$ closest points $x_i$ in the training sample. Closeness implies a metric, which for the moment we assume is Euclidean distance.
 
 
 \end{document}
