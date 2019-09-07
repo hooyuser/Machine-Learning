@@ -184,7 +184,7 @@ and
 respectively. Actually, We have the following result.
 
 \begin{theorem}
-	Suppose that the training set $T=\{(X_1,Y_1),(X_2,Y_2),\cdots,(X_{N},Y_{N})\}$ with $X_i\in\mathbb{R}^p$ and $Y_i\in\{+1,-1\}$ is generated from the distribution $\mathrm{P}(x,y)$. If the hypothesis space is a finite set $\mathcal{F}=\{f_1,f_2,\cdots,f_d\}$, then for any $f\in \mathcal{F}$, with a probability of not less than $1-\delta$ we have
+	Suppose that the training set $T=\{(X_1,Y_1),(X_2,Y_2),\cdots,(X_{N},Y_{N})\}$ with $X_i\in\mathbb{R}^p$ and $Y_i\in\{+1,-1\}$ is  independently generated from the distribution $\mathrm{P}(x,y)$. If the hypothesis space is a finite set $\mathcal{F}=\{f_1,f_2,\cdots,f_d\}$ and the 0–1 loss function is taken, then for any $f\in \mathcal{F}$, with a probability of not less than $1-\delta$ we have
 	\[
 	R(f) \le \hat{R}(f)+\varepsilon(d, N, \delta)
 	\]
@@ -194,8 +194,41 @@ respectively. Actually, We have the following result.
 	\]
 \end{theorem}
 
+\begin{proof} The Hoeffding's inequality states that if $X_1,\cdots, X_n$ are independent random variables bounded by the interval $[0, 1]$: $0 \le X_i \le 1$, then $\overline{X}=\sum_{i=1}^{n}X_i/n$ satisfies
+\[
+\mathrm{P}(\mathrm{E}[\overline{X}]-\overline{X} \geq t) \leq  e^{-2 n t^{2}}.
+\]
+for all $t>0$. Applying this inequality we get
+\[
+\mathrm{P}(R(f_i)-\hat{R}(f_i) \ge t) \leq  e^{-2 N t^{2}}\quad(i=1,2,\cdots,d).
+\]
+Let $A_i$ be the event which refers to $R(f_i)-\hat{R}(f_i) \ge t$. We have
+\[
+\mathrm{P}\left(\bigcup_{i=1}^d A_i\right)\le \sum_{i=1}^d\mathrm{P}\left( A_i\right)\le de^{-2 N t^{2}}
+\implies \mathrm{P}\left(\bigcap_{i=1}^d A_i^c\right)\ge 1- de^{-2 N t^{2}}.
+\]
+In other words, for any $f\in \mathcal{F}$, with a probability of not less than $1- de^{-2 N t^{2}}$ we have
+\[
+R(f) - \hat{R}(f)<t \quad\text{ or }\quad R(f) < \hat{R}(f)+t.
+\]
+Take
+\[
+t=\varepsilon(d, N, \delta)=\sqrt{\frac{1}{2 N}\left(\log d+\log \frac{1}{\delta}\right)}
+\]
+and we shows that for any $f\in \mathcal{F}$, with a probability of not less than $1-\delta$ we have
+\[
+R(f) \le \hat{R}(f)+\varepsilon(d, N, \delta).
+\]
+\end{proof}
 
+The generalization error bound $\hat{R}(f)+\varepsilon(d, N, \delta)$ helps up understand what is "overfitting" and why we can use structural risk minimization to get over it. 
 
+Assume $N$ is relatively small and
+\[
+\hat{f}=\arg\min_{f\in\mathcal{F}}\hat{R}(f).
+\] By increasing $d$ endlessly, we can extend the hypothesis space $\mathcal{F}$ and consequently reduce or at least maintain the empirical error $\hat{R}(\hat{f})$ all along. However, the cost it brings is a greater $\varepsilon(d, N, \delta)$, since $\varepsilon(d, N, \delta)$ is strictly increasing in $d$. Noticing $\hat{R}(\hat{f})$ cannot be less than 0 and $\varepsilon(d, N, \delta)\to\infty$ as $d\to\infty$, we can assert when $d$ is sufficiently large, generalization error bound will be also increasing in $d$. As a result, although we can find a function $\hat{f}$ with a perfect performance on the training set, the generalization ability of $\hat{f}$ can be very poor. That is to say, $\hat{f}$ is likely to perform badly on the sample out of the training set. The term "overfitting" exactly refers to such a case in which the selected function $\hat{f}$ has a quite small empirical error along with a tremendous generalization error. 
+
+Now it is clear to see why a penalty term is introduced into the structural risk minimization. It takes the size of hypothesis space $\mathcal{F}$ or equivalently the complexity of candidate functions into consideration. Thus when $N$ is limited, this method promisingly leads to a smaller generalization error.
 
 
 
@@ -406,6 +439,9 @@ the data until some minimum node size (say 5) is reached.
 \begin{aligned} Z_{m} &=\sigma\left(\alpha_{0 m}+\alpha_{m}^{T} X\right), m=1, \ldots, M \\ T_{k} &=\beta_{0 k}+\beta_{k}^{T} Z, k=1, \ldots, K \\ f_{k}(X) &=g_{k}(T), k=1, \ldots, K 
 \end{aligned}
 \]
+
+\chapter*{Appendix}
+\section*{1. Hoeffding's inequality} 
 
 
 \end{document}
