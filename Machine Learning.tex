@@ -16,6 +16,7 @@
 \usepackage[table,xcdraw]{xcolor}
 
 \usepackage{amsmath,amsfonts}
+\usepackage{mathrsfs}
 %\usepackage[utopia]{mathdesign}
 \usepackage[charter]{mathdesign}
 %\usepackage{unicode-math}
@@ -25,11 +26,12 @@
 \usepackage[thmmarks,amsmath]{ntheorem}
 \usepackage{tikz}
 \theorembodyfont{\upshape}
-\newtheorem{definition}{Definition}[section]
-\newtheorem{example}{Example}[section]
-\newtheorem{proposition}{Proposition}[section]
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{lemma}{Lemma}[section]
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{example}{Example}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\newtheorem{corollary}{Corollary}[chapter]
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
 \theoremstyle{nonumberplain}
 \theoremheaderfont{\itshape}
 \theorembodyfont{\normalfont}
@@ -74,16 +76,17 @@
 \begin{itemize}
 	\item \textbf{Data generating process}: $X$ is a $p-\text{dimensional}$ random vector with joint distribution $\mathrm{P}(x)$ and $Y=f(X)$ is a random variable.
 	\begin{itemize}
-		\item Input vector: $X\in D\subset\mathbb{R}^p$.
-		\item Output vector: $Y\in G\subset\mathbb{R}$.
-		\item Data: Given the sample $S=\{(X_1,Y_1),(X_2,Y_2),\cdots,(X_{N+M},Y_{N+M})\}$ where $(X_1,X_2,\cdots,X_{N+M})$ follows the distribution $\mathrm{P}(x)$, both the training data $T=\{(x_1,y_1),(x_2,y_2),\cdots,(x_{N},y_{N})\}$ and text data $Q=\{(x_{N+1},y_{N+1}),(x_{N+2},y_{N+2}),\cdots,(x_{N+M},y_{N+M})\}$ consist of the realization values of the sample.
+		\item Input vector: $X\in D\subseteq\mathbb{R}^p$.
+		\item Output vector: $Y\in G\subseteq\mathbb{R}$.
+		\item Data: Given the sample $S=\{(X_1,Y_1),(X_2,Y_2),\cdots,(X_{N+M},Y_{N+M})\}$ where $(X_1,X_2,\cdots,X_{N+M})$ follows the distribution $\mathrm{P}(x)$, the first $N$ data consist of the training data or training set $$T=\{(X_1,Y_1),(X_2,Y_2),\cdots,(X_{N},Y_{N})\}$$
+		and the other data consist of the text data or text set $$Q=\{(X_{N+1},Y_{N+1}),(X_{N+2},Y_{N+2}),\cdots,(X_{N+M},Y_{N+M})\}.$$
 	\end{itemize}	
 
 	Considering that in general $Y$ cannot be totally determined by $X$, the data generating process of the learning model can be extended: $(X,Y)$ is a $(p+1)-\text{dimensional}$ random vector with joint distribution $\mathrm{P}(x,y)$.
 	\begin{itemize}
-		\item Input vector: $X\in D\subset\mathbb{R}^p$.
-		\item Output vector: $Y\in G\subset\mathbb{R}$.
-		\item Data: Given the sample $S=\{(X_1,Y_1),(X_2,Y_2),\cdots,(X_{N+M},Y_{N+M})\}$ following the distribution $\mathrm{P}(x,y)$, both the training data $T$ and text data $Q$ consist of the realization values of the sample.
+		\item Input vector: $X\in D\subseteq\mathbb{R}^p$.
+		\item Output vector: $Y\in G\subseteq\mathbb{R}$.
+		\item Data: The sample $S=\{(X_1,Y_1),(X_2,Y_2),\cdots,(X_{N+M},Y_{N+M})\}$ follows the distribution $\mathrm{P}(x,y)$. The definitions of training sets $T$ and text data $Q$ are the same as above.
 	\end{itemize}
 
 	\item \textbf{Objective}: Given the sample $S$, estimate a decision function $\hat{f}\in\mathcal{F}$ trying to minimize the expected prediction error (EPE)
@@ -92,7 +95,9 @@
 	\]
 	\begin{itemize}
 		\item Decision function: $f:\mathbb{R}^p\supset D\to\mathbb{R},x\mapsto f(x)$ serves to produce the prediction of $Y$, provided a specified value $x$ of $X$. 
-		\item Loss function: $L(Y,f(X))$ normally has the form of 
+		\item Loss function: $L:\mathbb{R}^2\to [0,\infty)$ is a positive function which means 
+		$$L(t_1,t_2)=0\iff t_1=t_2=0.$$
+		$L(Y,f(X))$ normally has the form of 
 		\[
 		L_2=(Y-f(X))^2\ \text{ or }\ L_1=|Y-f(X)|\ \text{ or }\ L_I=1_{Y\ne f(X)}.
 		\]
@@ -102,11 +107,13 @@
 	\[
 	\min_{f\in\mathcal{F}}\mathrm{E}[L(Y,f(X))]
 	\]
-	in virtue of the optimization theory. In other words, what need to be settled is purely an optimization problem rather than a statistical problem. Unfortunately, the specific distribution of $(X,Y)$ is inaccessible in reality. Thus we can only exploit the training data to estimate an acceptable decision function $\hat{f}$, with acceptance of the fact that $\hat{f}$ in general has a greater EPE than $\tilde{f}$. 
+	in virtue of the optimization theory. In other words, what need to be settled is purely an optimization problem rather than a statistical problem. In particular, in the case of $Y=f(X)$, if $f\in\mathcal{F}$, then the optimal $\tilde{f}$ coincides with the function $f$ itself and the minimum of EPE can reach 0. 
+	
+	Unfortunately, the specific distribution of $(X,Y)$ is inaccessible in reality. Thus we can only exploit the training data to estimate an acceptable decision function $\hat{f}$, with acceptance of the fact that $\hat{f}$ in general has a greater EPE than $\tilde{f}$. 
 	
 	\item \textbf{Optimization strategies}: Since the EPE minimization problem is ill-formed, we have developed two major strategies to produce a tractable optimization problem. 
 	\begin{itemize}
-		\item Empirical risk minimization: according to the law of large numbers, if some regular conditions$\footnote{For example, the uniform law of large numbers can be applied here. The details are consigned to the appendix}$ hold, then as $N\to\infty$, the solution of the following minimization problem will converge to the theoretically optimal solution $\tilde{f}$.
+		\item Empirical risk minimization: according to the law of large numbers, if some regular conditions$\footnote{For example, the uniform law of large numbers can be applied here. The details are consigned to the appendix.}$ hold, then as $N\to\infty$, the solution of the following minimization problem will converge to the theoretically optimal solution $\tilde{f}$.
 		\[
 		\min_{f\in\mathcal{F}}\frac{1}{N}\sum_{i=1}^{N}L(Y_i,f(X_i))
 		\]
@@ -117,13 +124,27 @@
 		\]
 		it is possible to lead to a better result.
 	\end{itemize} 
+	\item \textbf{Learning Algorithm}: Let $$\mathscr{T}=\{\,\{(X_1,Y_1),(X_2,Y_2),\cdots,(X_{N},Y_{N})\}\;|\;(X_i,Y_i) \text{ follows the distribution }\mathrm{P}(x,y),\;N=1,2,\cdots \}$$ 
+	be the collection of all possible training sets $T$. A learning algorithm is a mapping $\mathsf{A}:\mathscr{T}\to\mathcal{F}$ sending the training set $T$ to a function $\hat{f}$ in the hypothesis space. 
+	
+
+	\begin{definition}[PAC identify]
+		Assume $\tilde{f}=\arg\min_{f\in\mathcal{F}}\mathrm{E}[L(Y,f(X))]
+		$. If there exists a learning algorithm $\mathsf{A}$ such that for all $\varepsilon>0$, $\delta>0$, $T\in \mathcal{T}$, there exists a positive integer $M$ such that as long as $|T|=N\ge M$,
+		\[
+		\mathrm{P}\left(\mathrm{E}[L(Y,(\mathsf{A}(T))(X))]-\mathrm{E}[L(Y,\tilde{f}(X))] \le \varepsilon\right) \ge 1-\delta,
+		\]
+		we say that $\mathsf{A}$ can PAC (probably approximately correctly) identify $\tilde{f}$ from $\mathcal{F}$ and that $\tilde{f}$ is PAC identifiable.
+	\end{definition}
 \end{itemize} 
+
 
 
 
 		
 	
-\section{The Common Form of Optimal Decision Function }
+\section{Find the Form of Optimal Decision Function }
+Supposing $\mathcal{F}$ is a collection of all functions $f:D\to G$, let's calculate the forms of the optimal decision function $\tilde{f}$ in common cases.
 \subsection{Loss function for quantitative output variables: squared error loss}
 Let $Y\in\mathbb{R}$ be a quantitative variable. And we take the most
 common and convenient loss function, squared error loss
@@ -150,7 +171,7 @@ We see the optimal solution is
 Thus the best prediction of $Y$ at any point $X = x$ is the conditional expectation, when best is measured by average squared error. \\
 Later in this book we are to develop effective methods to estimate the conditional expectation $\mathrm{E}[Y|\; X=x]$.
 \subsection{Loss function for categorical output variable: 0-1 indicator}
-Assume that $Y\in G$ is a categorical variable and that the set of possible classes is $G=\{G_1,G_2,\cdots,G_K\}$. This time the 0–1 loss function 
+Assume that $Y\in G$ is a categorical variable and that the set of possible categories $G=\{G_1,G_2,\cdots,G_K\}$. This time the 0–1 loss function 
 \[
 L(Y,f(X))=1_{Y\ne f(X)}=
 \begin{cases}
@@ -173,60 +194,182 @@ And the optimal solution is
 
 As is mentioned before, we always hope that $\hat{f}$ has as small EPE as possible. EPE is also called the generalization error, indicating it gauges the performance of the selected function $\hat{f}$ in a general sense. We also emphasize that without knowing the probability distribution of $(X,Y)$, there is no way to calculate the expectation of $L(Y,f(X))$. In practice, it is typical to analyze the upper bound of generalization error to describe the generalization ability of the selected function $\hat{f}$. 
 
-In the case of binary classifications, deriving the generalization error bound is relatively simple. Let's denote the generalization error and the empirical error by
-\begin{align*}
-	R(f)=\mathrm{E}[L(Y,f(X))]
-\end{align*}
-and
+For the convenience of description, let's denote the expected prediction error and the empirical error respectively by
 \[
-\hat{R}(f)=\frac{1}{N} \sum_{i=1}^{N} L\left(Y_{i}, f\left(X_{i}\right)\right),
+R(f)=\mathrm{E}[L(Y,f(X))]\quad\text{ and }\quad\widehat{R}(f)=\frac{1}{N} \sum_{i=1}^{N} L\left(Y_{i}, f\left(X_{i}\right)\right).
 \]
-respectively. Actually, We have the following result.
+
+In the case of binary classifications with a finite hypothesis space, deriving the generalization error bound is relatively simple. Actually, we have the following result.
 
 \begin{theorem}
-	Suppose that the training set $T=\{(X_1,Y_1),(X_2,Y_2),\cdots,(X_{N},Y_{N})\}$ with $X_i\in\mathbb{R}^p$ and $Y_i\in\{+1,-1\}$ is  independently generated from the distribution $\mathrm{P}(x,y)$. If the hypothesis space is a finite set $\mathcal{F}=\{f_1,f_2,\cdots,f_d\}$ and the 0–1 loss function is taken, then for any $f\in \mathcal{F}$, with a probability of not less than $1-\delta$ we have
+	Suppose that the training set $T=\{(X_1,Y_1),(X_2,Y_2),\cdots,(X_{N},Y_{N})\}$ where $X_i\in D\subseteq\mathbb{R}^p$ and $Y_i\in\{+1,-1\}$ is  independently generated from the distribution $\mathrm{P}(x,y)$. If the hypothesis space is a finite set $\mathcal{F}=\{f_1,f_2,\cdots,f_d\}$ and the 0-1 loss function is taken, then  with a probability of not less than $1-\delta$ we have for all $f\in \mathcal{F}$,
 	\[
-	R(f) \le \hat{R}(f)+\varepsilon(d, N, \delta)
+	\widehat{R}(f)-\varepsilon(d, N, \delta)\le R(f) \le \widehat{R}(f)+\varepsilon(d, N, \delta),
 	\]
 	where 
 	\[
-	\varepsilon(d, N, \delta)=\sqrt{\frac{1}{2 N}\left(\log d+\log \frac{1}{\delta}\right)}.
+	\varepsilon(d, N, \delta)=\sqrt{\frac{1}{2 N}\left(\ln d+\ln \frac{1}{\delta}\right)}.
 	\]
 \end{theorem}
 
 \begin{proof} The Hoeffding's inequality states that if $X_1,\cdots, X_n$ are independent random variables bounded by the interval $[0, 1]$: $0 \le X_i \le 1$, then $\overline{X}=\sum_{i=1}^{n}X_i/n$ satisfies
 \[
-\mathrm{P}(\mathrm{E}[\overline{X}]-\overline{X} \geq t) \leq  e^{-2 n t^{2}}.
+\mathrm{P}(\mathrm{E}[\overline{X}]-\overline{X} \geq t) \leq  e^{-2 n t^{2}},\quad\mathrm{P}(\overline{X}-\mathrm{E}[\overline{X}] \geq t) \leq  e^{-2 n t^{2}}.
 \]
 for all $t>0$. Applying this inequality we get
 \[
-\mathrm{P}(R(f_i)-\hat{R}(f_i) \ge t) \leq  e^{-2 N t^{2}}\quad(i=1,2,\cdots,d).
+\mathrm{P}\left(R(f_i)-\widehat{R}(f_i) \ge t\right) \leq  e^{-2 N t^{2}},\quad\mathrm{P}\left(\widehat{R}(f_i)-R(f_i) \ge t\right) \leq  e^{-2 N t^{2}}\quad(i=1,2,\cdots,d).
 \]
-Let $A_i$ be the event which refers to $R(f_i)-\hat{R}(f_i) \ge t$. We have
+Let $A_i$ be the event which refers to $R(f_i)-\widehat{R}(f_i) \ge t$. We have
 \[
 \mathrm{P}\left(\bigcup_{i=1}^d A_i\right)\le \sum_{i=1}^d\mathrm{P}\left( A_i\right)\le de^{-2 N t^{2}}
 \implies \mathrm{P}\left(\bigcap_{i=1}^d A_i^c\right)\ge 1- de^{-2 N t^{2}}.
 \]
 In other words, for any $f\in \mathcal{F}$, with a probability of not less than $1- de^{-2 N t^{2}}$ we have
 \[
-R(f) - \hat{R}(f)<t \quad\text{ or }\quad R(f) < \hat{R}(f)+t.
+R(f) - \widehat{R}(f)<t \quad\text{ or }\quad R(f) < \widehat{R}(f)+t.
+\]
+Likewise, we can let $B_i$ be the event which refers to $\widehat{R}(f_i)-R(f_i) \ge t$ and deduce
+\[
+\widehat{R}(f) -R(f) <t \quad\text{ or }\quad  \widehat{R}(f)-t<R(f) .
 \]
 Take
 \[
-t=\varepsilon(d, N, \delta)=\sqrt{\frac{1}{2 N}\left(\log d+\log \frac{1}{\delta}\right)}
+t=\varepsilon(d, N, \delta)=\sqrt{\frac{1}{2 N}\left(\ln d+\ln \frac{1}{\delta}\right)}
 \]
 and we shows that for any $f\in \mathcal{F}$, with a probability of not less than $1-\delta$ we have
 \[
-R(f) \le \hat{R}(f)+\varepsilon(d, N, \delta).
+\widehat{R}(f)-\varepsilon(d, N, \delta)\le R(f) \le \widehat{R}(f)+\varepsilon(d, N, \delta).
 \]
 \end{proof}
 
-The generalization error bound $\hat{R}(f)+\varepsilon(d, N, \delta)$ helps up understand what is "overfitting" and why we can use structural risk minimization to get over it. 
+It would be natural to consider binary classification problems with a infinite hypothesis space, which seems to be a more realistic assumption. To characterize the complexity of the infinite hypothesis space, we have to introduce some new concepts.
 
-Assume $N$ is relatively small and
+\begin{definition}[dichotomies]
+	The \emph{dichotomies} generated by $\mathcal{F}\subseteq\{+1,-1\}^D$ on the points $x_{1}, \cdots, x_{n}\in D$ are defined by
+	\[
+	\mathcal{F}\left({x}_{1}, \cdots, {x}_{n}\right)=\left\{\left(f\left({x}_{1}\right), \cdots, f\left({x}_{n}\right)\right) |x_{1}, \cdots, x_{n}\in D,\; f \in \mathcal{F}\right\},
+	\]
+	where $\{+1,-1\}^D$ consists of all mappings from $D$ to $\{+1,-1\}$.
+\end{definition}
+
+$f$ sends each $x_i$ to a specific value $+1$ or $-1$ as if it endows each $x_i$ with a label. Thus we see $x_{1}, \cdots, x_{n}$ can be classified into two categories by these labels and that different $f$ may result in different ways of classification.
+
+\begin{definition}[growth function]
+	The \emph{growth function} is defined for a hypothesis space $\mathcal{F}$ by
+	\[
+	\Pi_{\mathcal{F}}(n)=\max _{\left\{x_{1}, \cdots, x_{n}\right\} \subseteq D}\left|\mathcal{F}\left({x}_{1}, \cdots, {x}_{n}\right)\right|,
+	\]
+	where $|\cdot|$ denotes the cardinality (number of elements) of a set.
+\end{definition}
+$\Pi_{\mathcal{F}}(n)$ is the maximum number of dichotomies that can be generated by $\mathcal{F}$ on any $n$ points. Since $\mathcal{F}\left({x}_{1}, \cdots, {x}_{n}\right)\subseteq\{+1,-1\}^n$,  it clearly holds that
 \[
-\hat{f}=\arg\min_{f\in\mathcal{F}}\hat{R}(f).
-\] By increasing $d$ endlessly, we can extend the hypothesis space $\mathcal{F}$ and consequently reduce or at least maintain the empirical error $\hat{R}(\hat{f})$ all along. However, the cost it brings is a greater $\varepsilon(d, N, \delta)$, since $\varepsilon(d, N, \delta)$ is strictly increasing in $d$. Noticing $\hat{R}(\hat{f})$ cannot be less than 0 and $\varepsilon(d, N, \delta)\to\infty$ as $d\to\infty$, we can assert when $d$ is sufficiently large, generalization error bound will be also increasing in $d$. As a result, although we can find a function $\hat{f}$ with a perfect performance on the training set, the generalization ability of $\hat{f}$ can be very poor. That is to say, $\hat{f}$ is likely to perform badly on the sample out of the training set. The term "overfitting" exactly refers to such a case in which the selected function $\hat{f}$ has a quite small empirical error along with a tremendous generalization error. 
+\Pi_{\mathcal{F}}(n)\le 2^n.
+\]
+If $\mathcal{F}$ is capable of generating all possible dichotomies on $\{x_{1}, \cdots, x_{n}\}$, then $\mathcal{F}\left({x}_{1}, \cdots, {x}_{n}\right)=\{+1,-1\}^n$ and we say that $\mathcal{F}$ can \emph{shatter} $x_{1}, \cdots, x_{n}$. This signifies that $\mathcal{F}$ is as diverse as can be on this particular sample. 
+
+\begin{definition}[VC dimension]
+	The Vapnik-Chervonenkis dimension of a hypothesis space $\mathcal{F}$, denoted by $d_{VC}(\mathcal{F})$  or simply $d_{VC}$, is the largest value of $N$ for which $\Pi_{\mathcal{F}}(n)=2^n$. That is,
+	\[
+	d_{VC}(\mathcal{F})=\max \left\{m \mid \Pi_{\mathcal{F}}(m)=2^{m}\right\}
+	\]
+	If $\Pi_{\mathcal{F}}(n)=2^n$ for all $n$, then $d_{VC}(\mathcal{F})=\infty$.
+\end{definition}
+
+It is straightforward to show that if $\Pi_{\mathcal{F}}(m)=2^{m}$ then $\Pi_{\mathcal{F}}(n)=2^{n}$ for all $n<m$, since $\mathcal{F}\left({x}_{1}, \cdots, {x}_{m}\right)=\{+1,-1\}^m\implies\mathcal{F}\left({x}_{1}, \cdots, {x}_{m-1}\right)=\{+1,-1\}^{m-1}$. Thus we have
+\[
+\begin{cases}
+\Pi_{\mathcal{F}}(n)=2^n,&\text{if }n\le d_{VC}(\mathcal{F}),\\
+\Pi_{\mathcal{F}}(n)<2^n,&\text{if }n> d_{VC}(\mathcal{F}).
+\end{cases}
+\]
+If $\Pi_{\mathcal{F}}(k)<2^k$, we say $k$ is a \emph{break point} for $\mathcal{F}$. Next we are to find a more accurate bound for $\Pi_{\mathcal{F}}(n)$ at the break point.
+
+\begin{definition} Let $\mathfrak{G}=\{\mathcal{F}\subseteq\{+1,-1\}^D\mid\Pi_{\mathcal{F}}(k)< 2^k\}$. Define
+	\[
+	B(n, k)=\max _{\mathcal{F}\in\mathfrak{G},\,\left\{x_{1}, \cdots, x_{n}\right\} \subseteq D}\left|\mathcal{F}\left({x}_{1}, \cdots, {x}_{n}\right)\right|.
+	\]
+\end{definition}
+$B(n, k)$ is the maximum number of dichotomies which can be generated by some hypothesis space on $n$ points in $D$ such that these dichotomies cannot shatter any subsets of size $k$ of the $n$ points. If $k$ is a break point for $\mathcal{F}$ and $n\ge k$, then we can see $\Pi_{\mathcal{F}}(n)\le B(n, k)$ just from their definitions.
+
+To evaluate $B(n, k)$ , we start with the two boundary conditions
+$k = 1$ and $n = 1$.
+\[
+\begin{aligned} B(n, 1) &=1, \\
+ B(1,k) &=2 \text { for } k>1. \end{aligned}
+\]
+$B(n,1) = 1$ for all $n$ since if no subset of size 1 can be shattered, then only one dichotomy can be allowed. A second different dichotomy must differ on at least one point and then that subset of size 1 would be shattered. $B(l,k) = 2$ for $k > 1$ since in this case there do not even exist subsets of size k; the constraint is vacuously true and we have 2 possible dichotomies ( $+1$ and $-1$ ) on the one point .
+\begin{theorem}
+	If $d_{VC}<\infty$, then for all $n\ge1$,
+	\[
+	\Pi_{\mathcal{F}}(n) \le \sum_{i=0}^{d_{VC}}\binom{n}{i}.
+	\]
+\end{theorem}
+
+\begin{corollary}
+	If $d_{VC}<\infty$, then for all $n\ge d_{vc}$,
+	\[
+	\Pi_{\mathcal{F}}(n) \le\left(\frac{\mathrm{e}\cdot n }{d_{vc}}\right)^{d_{vc}}
+	\]
+\end{corollary}
+\begin{theorem}
+Suppose that the training set $T=\{(X_1,Y_1),(X_2,Y_2),\cdots,(X_{N},Y_{N})\}$ where $X_i\in D\subseteq\mathbb{R}^p$ and $Y_i\in\{+1,-1\}$ is  independently generated from the distribution $\mathrm{P}(x,y)$. If the 0-1 loss function is taken, then for any $\mathcal{F}\subseteq\{+1,-1\}^D$, $f\in\mathcal{F}$, tolerance $\delta > 0$,
+\[
+R(f) \le \widehat{R}(f)+\sqrt{\frac{8}{N} \ln \frac{4 \Pi_{\mathcal{F}}(2N)}{\delta}}
+\]
+with probability $\ge 1-\delta$.
+\end{theorem}
+\begin{corollary}
+	Suppose that the training set $T=\{(X_1,Y_1),(X_2,Y_2),\cdots,(X_{N},Y_{N})\}$ where $X_i\in D\subseteq\mathbb{R}^p$ and $Y_i\in\{+1,-1\}$ is  independently generated from the distribution $\mathrm{P}(x,y)$. If the 0-1 loss function is taken, then for any $\mathcal{F}\subseteq\{+1,-1\}^D$, $f\in\mathcal{F}$, $N\ge d_{VC}$, tolerance $\delta > 0$,
+	\[
+	R(f) \le \widehat{R}(f)+\sqrt{\frac{8 d_{VC} \ln \frac{2 \mathrm{e} N}{d_{VC}}+8 \ln \frac{4}{\delta}}{N}}
+	\]
+	with probability $\ge 1-\delta$.
+\end{corollary}
+
+\begin{theorem}
+	If $d_{VC}<\infty$, empirical risk minimization algorithm 
+	$$\mathsf{A}_E:T\longmapsto \hat{f}=\arg\min_{f\in\mathcal{F}}\widehat{R}(f) $$
+	can PAC (probably approximately correctly) identify $\tilde{f}$ from $\mathcal{F}$.
+\end{theorem}
+
+\begin{proof} 
+	Given any $\varepsilon>0$, $\delta>0$, $T\in \mathcal{T}$, according to theorem 1.1 we take $d=1$ and
+	\[
+	\frac{\varepsilon}{2}=\sqrt{\frac{\ln\left( 2 / \delta\right)}{2 N}},
+	\]
+	which leads to
+	\[
+	P\left(\widehat{R}(\tilde{f})-R(\tilde{f}) > \frac{\varepsilon}{2}\right) \le \frac{\delta}{2}.
+	\]
+	According to corollary 1.2, take
+	\[
+	\frac{\varepsilon}{2}=\sqrt{\frac{8 d \ln \frac{2 \mathrm{e} N}{d}+8 \ln \frac{8}{\delta}}{N}}
+	\]
+	and then we have
+	\[
+	P\left(R(\hat{f})-\widehat{R}(\hat{f}) > \frac{\varepsilon}{2}\right) \le \frac{\delta}{2}
+	\]
+	for $N\ge d_{VC}$. Hence there must be that
+\[
+\begin{aligned}
+	\mathrm{P}\left(R(\hat{f})-R(\tilde{f}) > \varepsilon\right) &\le \mathrm{P}\left(R(\hat{f})-R(\tilde{f})+\widehat{R}(\tilde{f})-\widehat{R}(\hat{f}) > \varepsilon\right)\qquad\qquad\qquad\left(\text{ since }\widehat{R}(\tilde{f})-\widehat{R}(\hat{f})\ge 0\ \right)\\
+	&\le\mathrm{P}\left(\widehat{R}(\tilde{f})-R(\tilde{f}) > \frac{\varepsilon}{2}\text{ or }R(\hat{f})-\widehat{R}(\hat{f}) > \frac{\varepsilon}{2}\right)\\
+	&\le\mathrm{P}\left(\widehat{R}(\tilde{f})-R(\tilde{f}) > \frac{\varepsilon}{2}\right)+\mathrm{P}\left(R(\hat{f})-\widehat{R}(\hat{f}) > \frac{\varepsilon}{2}\right)\\
+	&\le\frac{\delta}{2}+\frac{\delta}{2}\\
+	&\le\delta.
+\end{aligned}
+\]	
+Note that when $N$ is sufficiently large these inequalities hold for even smaller $\delta>0$. We conclude that there exists a positive integer $M$ such that for all $N\ge M$,
+\[
+\mathrm{P}\left(\mathrm{E}[L(Y,(\mathsf{A}(T))(X))]-\mathrm{E}[L(Y,\tilde{f}(X))] \le \varepsilon\right) \ge 1-\delta,
+\]
+\end{proof}
+
+\section{tradeoff}
+The generalization error bound $\widehat{R}(f)+\varepsilon(d, N, \delta)$ helps up understand what is "overfitting" and why we can use structural risk minimization to get over it. 
+
+Assume $N$ is relatively small and $\hat{f}=\arg\min_{f\in\mathcal{F}}\widehat{R}(f).$ By increasing $d$ endlessly, we can extend the hypothesis space $\mathcal{F}$ and consequently reduce or at least maintain the empirical error $\widehat{R}(\hat{f})$ all along. However, the cost it brings is a greater $\varepsilon(d, N, \delta)$, since $\varepsilon(d, N, \delta)$ is strictly increasing in $d$. Noticing $\widehat{R}(\hat{f})$ cannot be less than 0 and $\varepsilon(d, N, \delta)\to\infty$ as $d\to\infty$, we can assert when $d$ is sufficiently large, generalization error bound will be also increasing in $d$. As a result, although we can find a function $\hat{f}$ with a perfect performance on the training set, the generalization ability of $\hat{f}$ can be very poor. That is to say, $\hat{f}$ is likely to perform badly on the sample out of the training set. The term "overfitting" exactly refers to such a case in which the selected function $\hat{f}$ has a quite small empirical error along with a tremendous generalization error. 
 
 Now it is clear to see why a penalty term is introduced into the structural risk minimization. It takes the size of hypothesis space $\mathcal{F}$ or equivalently the complexity of candidate functions into consideration. Thus when $N$ is limited, this method promisingly leads to a smaller generalization error.
 
@@ -245,7 +388,7 @@ Y= X^T\beta+\varepsilon,
 where $X=(1,X^{(1)},\cdots,X^{(p)})\in\mathbb{R}^{p+1}$, $Y\in\mathbb{R}$, $\beta\in\mathbb{R}^{p+1}$ is an unknown parameter and $\varepsilon$ is an error term which cannot be directly observed. Without loss of generality, we can always assume that $\E[\varepsilon|\;X]=0$.
 Given a finite sample $(\X,\y)$ of size $n$, the linear Model indicates 
 \[
-\Y = \X \beta +\vep,
+\Y = {\mathbf{X}} \beta +\vep,
 \]
 where
 \[
@@ -256,7 +399,7 @@ Y_2\\
 \vdots\\
 Y_N
 \end{pmatrix}
-,\;\X=
+,\;{\mathbf{X}}=
 \begin{pmatrix}
 1& x_{11}&\cdots& x_{1p}\\
 1& x_{21}&\cdots &x_{2p}\\
