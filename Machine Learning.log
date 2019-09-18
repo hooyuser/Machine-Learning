@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2019.3.16)  11 SEP 2019 00:35
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2019.3.16)  11 SEP 2019 02:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1069,24 +1069,23 @@ Missing character: There is no – in font mdbchr8t!
 Package hyperref Info: bookmark level for unknown theorem defaults to 0 on inpu
 t line 205.
 LaTeX Font Info:    Font shape `T1/mdbch/m/it' will be
-(Font)              scaled to size 9.60007pt on input line 215.
+(Font)              scaled to size 9.60007pt on input line 211.
 Package hyperref Info: bookmark level for unknown proof defaults to 0 on input 
-line 215.
+line 211.
  [5]
 LaTeX Font Info:    Font shape `U/xmdeuf/m/n' will be
-(Font)              scaled to size 9.66995pt on input line 288.
+(Font)              scaled to size 9.66995pt on input line 281.
 LaTeX Font Info:    Font shape `U/xmdeuf/m/n' will be
-(Font)              scaled to size 6.76897pt on input line 288.
+(Font)              scaled to size 6.76897pt on input line 281.
 LaTeX Font Info:    Font shape `U/xmdeuf/m/n' will be
-(Font)              scaled to size 4.83498pt on input line 288.
- [6]
+(Font)              scaled to size 4.83498pt on input line 281.
 Package hyperref Info: bookmark level for unknown corollary defaults to 0 on in
-put line 310.
- [7] [8]
+put line 303.
+ [6] [7] [8]
 Chapter 2.
 
 LaTeX Font Warning: Font shape `TU/mdbch/b/n' undefined
-(Font)              using `TU/mdbch/m/n' instead on input line 389.
+(Font)              using `TU/mdbch/m/n' instead on input line 387.
 
 [9
 
@@ -1108,33 +1107,33 @@ Chapter 6.
 
 ]
 LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 23.88496pt on input line 586.
+(Font)              scaled to size 23.88496pt on input line 584.
 \tf@thm=\write5
 \openout5 = `"Machine Learning.thm"'.
 
  [16
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 590.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 590.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 588.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 588.
  (./Machine Learning.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 590.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 590.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 588.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 588.
 Package rerunfilecheck Info: File `"Machine Learning".out' has not changed.
 (rerunfilecheck)             Checksum: .
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 590.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 588.
  ) 
 Here is how much of TeX's memory you used:
- 21676 strings out of 492970
- 376461 string characters out of 6137298
- 446653 words of memory out of 5000000
- 25279 multiletter control sequences out of 15000+600000
+ 21675 strings out of 492970
+ 376449 string characters out of 6137298
+ 447644 words of memory out of 5000000
+ 25278 multiletter control sequences out of 15000+600000
  69764 words of font info for 107 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 55i,11n,54p,1077b,547s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,11n,54p,1117b,547s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on Machine Learning.pdf (16 pages).

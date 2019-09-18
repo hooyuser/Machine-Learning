@@ -130,7 +130,7 @@
 
 	\begin{definition}[PAC identify]
 		Assume $\tilde{f}=\arg\min_{f\in\mathcal{F}}\mathrm{E}[L(Y,f(X))]
-		$. If there exists a learning algorithm $\mathsf{A}$ such that for all $\varepsilon>0$, $\delta>0$, $T\in \mathcal{T}$, there exists a positive integer $M$ such that as long as $|T|=N\ge M$,
+		$. If there exists a learning algorithm $\mathsf{A}$ such that for all $\varepsilon>0$, $\delta>0$, $T\in \mathcal{T}$, there exists a positive integer $N^*$ such that as long as $|T|=N\ge N^*$,
 		\[
 		\mathrm{P}\left(\mathrm{E}[L(Y,(\mathsf{A}(T))(X))]-\mathrm{E}[L(Y,\tilde{f}(X))] \le \varepsilon\right) \ge 1-\delta,
 		\]
@@ -204,11 +204,7 @@ In the case of binary classifications with a finite hypothesis space, deriving t
 \begin{theorem}
 	Suppose that the training set $T=\{(X_1,Y_1),(X_2,Y_2),\cdots,(X_{N},Y_{N})\}$ where $X_i\in D\subseteq\mathbb{R}^p$ and $Y_i\in\{+1,-1\}$ is  independently generated from the distribution $\mathrm{P}(x,y)$. If the hypothesis space is a finite set $\mathcal{F}=\{f_1,f_2,\cdots,f_d\}$ and the 0-1 loss function is taken, then  with a probability of not less than $1-\delta$ we have for all $f\in \mathcal{F}$,
 	\[
-	\widehat{R}(f)-\varepsilon(d, N, \delta)\le R(f) \le \widehat{R}(f)+\varepsilon(d, N, \delta),
-	\]
-	where 
-	\[
-	\varepsilon(d, N, \delta)=\sqrt{\frac{1}{2 N}\left(\ln d+\ln \frac{1}{\delta}\right)}.
+	\widehat{R}(f)-\sqrt{\frac{1}{2 N}\left(\ln d+\ln \frac{1}{\delta}\right)}\le R(f) \le \widehat{R}(f)+\sqrt{\frac{1}{2 N}\left(\ln d+\ln \frac{1}{\delta}\right)}.
 	\]
 \end{theorem}
 
@@ -235,12 +231,9 @@ Likewise, we can let $B_i$ be the event which refers to $\widehat{R}(f_i)-R(f_i)
 \]
 Take
 \[
-t=\varepsilon(d, N, \delta)=\sqrt{\frac{1}{2 N}\left(\ln d+\ln \frac{1}{\delta}\right)}
+t=\sqrt{\frac{1}{2 N}\left(\ln d+\ln \frac{1}{\delta}\right)}
 \]
-and we shows that for any $f\in \mathcal{F}$, with a probability of not less than $1-\delta$ we have
-\[
-\widehat{R}(f)-\varepsilon(d, N, \delta)\le R(f) \le \widehat{R}(f)+\varepsilon(d, N, \delta).
-\]
+and we completes our proof.
 \end{proof}
 
 It would be natural to consider binary classification problems with a infinite hypothesis space, which seems to be a more realistic assumption. To characterize the complexity of the infinite hypothesis space, we have to introduce some new concepts.
@@ -302,7 +295,7 @@ $B(n,1) = 1$ for all $n$ since if no subset of size 1 can be shattered, then onl
 \begin{theorem}
 	If $d_{VC}<\infty$, then for all $n\ge1$,
 	\[
-	\Pi_{\mathcal{F}}(n) \le \sum_{i=0}^{d_{VC}}\binom{n}{i}.
+	\Pi_{\mathcal{F}}(n) \le \sum_{i=0}^{d_{VC}}\binom{n}{i}\le n^{d_{VC}}+1.
 	\]
 \end{theorem}
 
@@ -315,7 +308,7 @@ $B(n,1) = 1$ for all $n$ since if no subset of size 1 can be shattered, then onl
 \begin{theorem}
 Suppose that the training set $T=\{(X_1,Y_1),(X_2,Y_2),\cdots,(X_{N},Y_{N})\}$ where $X_i\in D\subseteq\mathbb{R}^p$ and $Y_i\in\{+1,-1\}$ is  independently generated from the distribution $\mathrm{P}(x,y)$. If the 0-1 loss function is taken, then for any $\mathcal{F}\subseteq\{+1,-1\}^D$, $f\in\mathcal{F}$, tolerance $\delta > 0$,
 \[
-R(f) \le \widehat{R}(f)+\sqrt{\frac{8}{N} \ln \frac{4 \Pi_{\mathcal{F}}(2N)}{\delta}}
+R(f) \le \widehat{R}(f)+\sqrt{\frac{8}{N} \ln \frac{4 \Pi_{\mathcal{F}}(2N)}{\delta}}\le\widehat{R}(f) +\sqrt{\frac{8}{N} \ln \frac{4 (2N)^{d_{VC}}+4}{\delta}}
 \]
 with probability $\ge 1-\delta$.
 \end{theorem}
@@ -336,42 +329,47 @@ with probability $\ge 1-\delta$.
 \begin{proof} 
 	Given any $\varepsilon>0$, $\delta>0$, $T\in \mathcal{T}$, according to theorem 1.1 we take $d=1$ and
 	\[
-	\frac{\varepsilon}{2}=\sqrt{\frac{\ln\left( 2 / \delta\right)}{2 N}},
+	\frac{\varepsilon}{2}=\sqrt{\frac{\ln\left( 2 / \delta\right)}{2 N_1}},
 	\]
 	which leads to
 	\[
 	P\left(\widehat{R}(\tilde{f})-R(\tilde{f}) > \frac{\varepsilon}{2}\right) \le \frac{\delta}{2}.
 	\]
-	According to corollary 1.2, take
+	According to theorem 1.3, let
 	\[
-	\frac{\varepsilon}{2}=\sqrt{\frac{8 d \ln \frac{2 \mathrm{e} N}{d}+8 \ln \frac{8}{\delta}}{N}}
+	\frac{\varepsilon}{2}=\sqrt{\frac{8}{N_2} \ln \frac{8 (2N_2)^{d_{VC}}+8}{\delta}}
 	\]
 	and then we have
 	\[
-	P\left(R(\hat{f})-\widehat{R}(\hat{f}) > \frac{\varepsilon}{2}\right) \le \frac{\delta}{2}
+	P\left(R(\hat{f})-\widehat{R}(\hat{f}) > \frac{\varepsilon}{2}\right) \le \frac{\delta}{2}.
 	\]
-	for $N\ge d_{VC}$. Hence there must be that
+	Hence there must be that
 \[
 \begin{aligned}
 	\mathrm{P}\left(R(\hat{f})-R(\tilde{f}) > \varepsilon\right) &\le \mathrm{P}\left(R(\hat{f})-R(\tilde{f})+\widehat{R}(\tilde{f})-\widehat{R}(\hat{f}) > \varepsilon\right)\qquad\qquad\qquad\left(\text{ since }\widehat{R}(\tilde{f})-\widehat{R}(\hat{f})\ge 0\ \right)\\
-	&\le\mathrm{P}\left(\widehat{R}(\tilde{f})-R(\tilde{f}) > \frac{\varepsilon}{2}\text{ or }R(\hat{f})-\widehat{R}(\hat{f}) > \frac{\varepsilon}{2}\right)\\
+	&\le\mathrm{P}\left(\widehat{R}(\tilde{f})-R(\tilde{f}) > \frac{\varepsilon}{2}\;\text{ or }\;R(\hat{f})-\widehat{R}(\hat{f}) > \frac{\varepsilon}{2}\right)\\
 	&\le\mathrm{P}\left(\widehat{R}(\tilde{f})-R(\tilde{f}) > \frac{\varepsilon}{2}\right)+\mathrm{P}\left(R(\hat{f})-\widehat{R}(\hat{f}) > \frac{\varepsilon}{2}\right)\\
 	&\le\frac{\delta}{2}+\frac{\delta}{2}\\
 	&\le\delta.
 \end{aligned}
 \]	
-Note that when $N$ is sufficiently large these inequalities hold for even smaller $\delta>0$. We conclude that there exists a positive integer $M$ such that for all $N\ge M$,
+Fix $\varepsilon$ and solve for $\delta$
 \[
-\mathrm{P}\left(\mathrm{E}[L(Y,(\mathsf{A}(T))(X))]-\mathrm{E}[L(Y,\tilde{f}(X))] \le \varepsilon\right) \ge 1-\delta,
+\delta=\frac{2}{\mathrm{e}^{N_1\varepsilon^2/2}}=\frac{8 (2N_2)^{d_{VC}}+8}{\mathrm{e}^{N_2\varepsilon^2/32}}.
+\]
+Note that when $N_1$, $N_2$ are sufficiently large these inequalities hold for even smaller $\delta>0$. We conclude that there exists a positive integer $N^*$ such that for all $N\ge N^*$,
+\[
+\mathrm{P}\left(\mathrm{E}[L(Y,(\mathsf{A}(T))(X))]-\mathrm{E}[L(Y,\tilde{f}(X))] \le \varepsilon\right) \ge 1-\delta.
 \]
 \end{proof}
 
 \section{tradeoff}
-The generalization error bound $\widehat{R}(f)+\varepsilon(d, N, \delta)$ helps up understand what is "overfitting" and why we can use structural risk minimization to get over it. 
+The generalization error bound $\widehat{R}(f)+\varepsilon(d_{VC}, N, \delta)$ helps up understand what is "overfitting" and why we can use structural risk minimization to get over it. 
 
-Assume $N$ is relatively small and $\hat{f}=\arg\min_{f\in\mathcal{F}}\widehat{R}(f).$ By increasing $d$ endlessly, we can extend the hypothesis space $\mathcal{F}$ and consequently reduce or at least maintain the empirical error $\widehat{R}(\hat{f})$ all along. However, the cost it brings is a greater $\varepsilon(d, N, \delta)$, since $\varepsilon(d, N, \delta)$ is strictly increasing in $d$. Noticing $\widehat{R}(\hat{f})$ cannot be less than 0 and $\varepsilon(d, N, \delta)\to\infty$ as $d\to\infty$, we can assert when $d$ is sufficiently large, generalization error bound will be also increasing in $d$. As a result, although we can find a function $\hat{f}$ with a perfect performance on the training set, the generalization ability of $\hat{f}$ can be very poor. That is to say, $\hat{f}$ is likely to perform badly on the sample out of the training set. The term "overfitting" exactly refers to such a case in which the selected function $\hat{f}$ has a quite small empirical error along with a tremendous generalization error. 
+Assume $N$ is relatively small and $\hat{f}=\arg\min_{f\in\mathcal{F}}\widehat{R}(f).$ By increasing $d_{VC}$ endlessly, we can extend the hypothesis space $\mathcal{F}$ and consequently reduce or at least maintain the empirical error $\widehat{R}(\hat{f})$ all along. However, the cost it brings is a greater $\varepsilon(d_{VC}, N, \delta)$, since $\varepsilon(d_{VC}, N, \delta)$ is strictly increasing in $d_{VC}$. Noticing $\widehat{R}(\hat{f})$ cannot be less than 0 and $\varepsilon(d_{VC}, N, \delta)\to\infty$ as $d_{VC}\to\infty$, we can assert when $d_{VC}$ is sufficiently large, generalization error bound will be also increasing in $d_{VC}$. As a result, although we can find a function $\hat{f}$ with a perfect performance on the training set, the generalization ability of $\hat{f}$ can be very poor. That is to say, $\hat{f}$ is likely to perform badly on the sample out of the training set. The term "overfitting" exactly refers to such a case in which the selected function $\hat{f}$ has a quite small empirical error along with a tremendous generalization error. 
 
-Now it is clear to see why a penalty term is introduced into the structural risk minimization. It takes the size of hypothesis space $\mathcal{F}$ or equivalently the complexity of candidate functions into consideration. Thus when $N$ is limited, this method promisingly leads to a smaller generalization error.
+Therefore, we have a tradeoff: more complex models help $\widehat{R}(f)$
+and hurt $\varepsilon(d_{VC}, N, \delta)$. The optimal model is a compromise that minimizes a combination of the two terms. Now it is clear to see why a penalty term is introduced into the structural risk minimization. It takes the size of hypothesis space $\mathcal{F}$ or equivalently the complexity of candidate functions into consideration. Thus when $N$ is limited, this method promisingly leads to a smaller generalization error.
 
 
 
