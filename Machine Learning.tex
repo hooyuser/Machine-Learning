@@ -2,23 +2,26 @@
 % Comment the following line to NOT allow the usage of umlauts
 \usepackage[utf8]{inputenc}
 % Uncomment the following line to allow the usage of graphics (.png, .jpg)
+
 \usepackage{geometry}
 \geometry{left=3cm,right=3cm,top=3cm,bottom=3cm}
 
 \usepackage[usenames,dvipsnames]{color}
 \usepackage[colorlinks,linkcolor=NavyBlue,anchorcolor=red,citecolor=green]{hyperref}
+\usepackage[table,xcdraw]{xcolor}
 \usepackage{graphicx}
 \usepackage{enumerate}
 \usepackage{multirow}
 \usepackage{float}
 \usepackage{bm}
 \usepackage{array,makecell}
-\usepackage[table,xcdraw]{xcolor}
+
 
 \usepackage{amsmath,amsfonts}
 \usepackage{mathrsfs}
 %\usepackage[utopia]{mathdesign}
-\usepackage[charter]{mathdesign}
+%\usepackage[charter]{mathdesign}
+%\usepackage{millennial}
 %\usepackage{unicode-math}
 %\setmathfont{Latin Modern Math}
 %\setmathfont{TG Termes Math}
@@ -69,47 +72,65 @@
 	\end{center}
 
 % Create a new 1st level heading
+
+\chapter*{Mathematical Notation}
+	Suppose that $X:\Omega\to\mathbb{R}^p$ is a random variable. Sometimes we identify $X$ with its image $\mathrm{im}\,X$ for simplicity.
+\begin{itemize}
+	\item $X\sim P(x)$: The random variable $X$ follows the distribution $P(x)$.
+	\item $X_i\stackrel{\text{i.i.d}}{\sim}P(x)\;(i=1,\cdots,N)$: The independent and identically distributed random vectors $X_i$ follow the distribution $P(x)$. \item $\mathbf{S}_N=\{X_i\}_{i=1}^N\stackrel{\text{i.i.d}}{\sim}P(x)$: $\mathbf{S}_N$ is a simple random sample from the distribution $P(x)$.
+\end{itemize}
 \chapter{Introduction}
 
 \section{Terminology and Framework}
 
 \begin{itemize}
-	\item \textbf{Data generating process}: $X$ is a $p-\text{dimensional}$ random vector with joint distribution $\mathrm{P}(x)$ and $Y=f(X)$ is a random variable.
+	\item \textbf{Data generating process}: $X$ is a $p$-dimensional random variable and $Y$ is a 1-dimensional random variable. $(X,Y)$ follows the distribution $P(x,y)$.
 	\begin{itemize}
 		\item Input vector: $X\in D\subseteq\mathbb{R}^p$.
 		\item Output vector: $Y\in G\subseteq\mathbb{R}$.
-		\item Data: Given the sample $S=\{(X_1,Y_1),(X_2,Y_2),\cdots,(X_{N+M},Y_{N+M})\}$ where $(X_1,X_2,\cdots,X_{N+M})$ follows the distribution $\mathrm{P}(x)$, the first $N$ data consist of the training data or training set $$T=\{(X_1,Y_1),(X_2,Y_2),\cdots,(X_{N},Y_{N})\}$$
-		and the other data consist of the text data or text set $$Q=\{(X_{N+1},Y_{N+1}),(X_{N+2},Y_{N+2}),\cdots,(X_{N+M},Y_{N+M})\}.$$
+		\item Data: Given the training sample $\mathbf{S}_{N}=\{(X_i,Y_i)\}_{i=1}^{N}\stackrel{\text{i.i.d}}{\sim}P(x,y)$, the training data or training set consists of the realization value of the sample, that is 
+		$$
+		T_N=\{(x_1,y_1),(x_2,y_2),\cdots,(x_{N},y_{N})\}.
+		$$
+		For another sample $\mathbf{S}_{M}'=\{(X_i',Y_i')\}_{i=1}^{M}\stackrel{\text{i.i.d}}{\sim}P(x,y)$, the test sample, we define the test data or test set as the realization value of $\mathbf{S}_{M}'$
+		$$
+		Q_M=\{(x'_{1},y'_{1}),(x'_{2},y'_{2}),\cdots,(x'_{M},y'_{M})\}.
+		$$
 	\end{itemize}	
 
-	Considering that in general $Y$ cannot be totally determined by $X$, the data generating process of the learning model can be extended: $(X,Y)$ is a $(p+1)-\text{dimensional}$ random vector with joint distribution $\mathrm{P}(x,y)$.
-	\begin{itemize}
-		\item Input vector: $X\in D\subseteq\mathbb{R}^p$.
-		\item Output vector: $Y\in G\subseteq\mathbb{R}$.
-		\item Data: The sample $S=\{(X_1,Y_1),(X_2,Y_2),\cdots,(X_{N+M},Y_{N+M})\}$ follows the distribution $\mathrm{P}(x,y)$. The definitions of training sets $T$ and text data $Q$ are the same as above.
-	\end{itemize}
-
-	\item \textbf{Objective}: Given the sample $S$, estimate a decision function $\hat{f}\in\mathcal{F}$ trying to minimize the expected prediction error (EPE)
+	\item \textbf{Objective}: Given the training set $T_N$, find a decision function $\hat{f}\in\mathcal{F}\subset \mathbb{R}^{(\mathbb{R}^p)}$ to produce as little expected prediction error (EPE) 
 	\[
-	\mathrm{E}[L(Y,f(X))].
+	\mathrm{E}_{X,Y}[L(Y,f(X))]
 	\]
+	as possible.
 	\begin{itemize}
-		\item Decision function: $f:\mathbb{R}^p\supset D\to\mathbb{R},x\mapsto f(x)$ serves to produce the prediction of $Y$, provided a specified value $x$ of $X$. 
-		\item Loss function: $L:\mathbb{R}^2\to [0,\infty)$ is a positive function which means 
+		\item Decision function: $f:\mathbb{R}^p\supset D\to\mathbb{R},x\mapsto f(x)$ serves to make a prediction of $Y$, provided a specified value $x$ of $X$. 
+		\item Loss function: $L:\mathbb{R}^2\to [0,\infty)$ is a non-negative function that satisfies 
 		$$L(t_1,t_2)=0\iff t_1=t_2=0.$$
 		$L(Y,f(X))$ normally has the form of 
 		\[
-		L_2=(Y-f(X))^2\ \text{ or }\ L_1=|Y-f(X)|\ \text{ or }\ L_I=1_{Y\ne f(X)}.
+		L_2=(Y-f(X))^2\ \text{ or }\ L_1=|Y-f(X)|\ \text{ or }\ L_I=1_{Y\ne f(X)} \text{ or }L_C=Y\log f(X)+(1-Y)\log(1-f(X)).
 		\]
-		\item Hypothesis space: $\mathcal{F}$ is a collection of all potential decision functions $f$ to be selected. In some cases, we suppose that $f$ as a candidate can be specified by several parameters. Thus $\mathcal{F}=\{f_\theta|Y=f_\theta(X),\;\theta\in\mathbb{R}^n\}$ can be described by the parametric space $\Theta=\{\theta:Y=f_\theta(X),\;\theta\in\mathbb{R}^n\}$.
+		\item Hypothesis space: $\mathcal{F}$ is a collection of all potential decision functions $f$ to be selected. In some cases, we suppose that $f$ as a candidate can be specified by some parameters. Thus $\mathcal{F}=\{f_\theta|Y=f_\theta(X),\;\theta\in\Theta\}$ can be described by the parametric space $\Theta$.
 	\end{itemize}
 	If the probability distribution of $(X,Y)$ was known to us, it might succeed to find the optimal solution $\tilde{f}$ of the following minimization problem
 	\[
-	\min_{f\in\mathcal{F}}\mathrm{E}[L(Y,f(X))]
+	\tilde{f}=\arg\min_{f\in\mathcal{F}}\mathrm{E}_{X,Y}[L(Y,f(X))]
 	\]
 	in virtue of the optimization theory. In other words, what need to be settled is purely an optimization problem rather than a statistical problem. In particular, in the case of $Y=f(X)$, if $f\in\mathcal{F}$, then the optimal $\tilde{f}$ coincides with the function $f$ itself and the minimum of EPE can reach 0. 
 	
 	Unfortunately, the specific distribution of $(X,Y)$ is inaccessible in reality. Thus we can only exploit the training data to estimate an acceptable decision function $\hat{f}$, with acceptance of the fact that $\hat{f}$ in general has a greater EPE than $\tilde{f}$. 
+	
+	\item \textbf{Learning Algorithm}: 
+	A learning algorithm is a measurable mappings $\mathsf{A}:(D\times G)^\mathbb{N}\to \mathcal{F}$ sending the training set $T_N$ to the decision function $\mathsf{A}(T_N)=\hat{f}\in \mathcal{F}$, where $T_N\in(D\times G)^N$ is identified with an element in $(D\times G)^\mathbb{N}$ by the natural inclusion.
+	\begin{definition}[PAC identify]
+		Assume $\tilde{f}=\arg\min_{f\in\mathcal{F}}\mathrm{E}[L(Y,f(X))]
+		$. If there exists a learning algorithm $\mathsf{A}$ such that for all $\varepsilon>0$, $\delta>0$ and $P(x,y)$ on $\mathbb{R}^{p+1}$, there exists a positive integer $N^*$ such that as long as $N\ge N^*$,
+		\[
+		\mathrm{P}_{\mathbf{S}_N}\left(\mathrm{E}_{X,Y}[L(Y,(\mathsf{A}(\mathbf{S}_N))(X))\mid \mathbf{S}_N]-\mathrm{E}_{X,Y}[L(Y,\tilde{f}(X))] \le \varepsilon\right) \ge 1-\delta,
+		\]
+		we say that $\mathsf{A}$ can PAC (probably approximately correctly) identify $\tilde{f}$ from $\mathcal{F}$ and that $\tilde{f}$ is PAC identifiable.
+	\end{definition}
 	
 	\item \textbf{Optimization strategies}: Since the EPE minimization problem is ill-formed, we have developed two major strategies to produce a tractable optimization problem. 
 	\begin{itemize}
@@ -124,21 +145,19 @@
 		\]
 		it is possible to lead to a better result.
 	\end{itemize} 
-	\item \textbf{Learning Algorithm}: Let $$\mathscr{T}=\{\,\{(X_1,Y_1),(X_2,Y_2),\cdots,(X_{N},Y_{N})\}\;|\;(X_i,Y_i) \text{ follows the distribution }\mathrm{P}(x,y),\;N=1,2,\cdots \}$$ 
-	be the collection of all possible training sets $T$. A learning algorithm is a mapping $\mathsf{A}:\mathscr{T}\to\mathcal{F}$ sending the training set $T$ to a function $\hat{f}$ in the hypothesis space. 
 	
-
-	\begin{definition}[PAC identify]
-		Assume $\tilde{f}=\arg\min_{f\in\mathcal{F}}\mathrm{E}[L(Y,f(X))]
-		$. If there exists a learning algorithm $\mathsf{A}$ such that for all $\varepsilon>0$, $\delta>0$, $T\in \mathcal{T}$, there exists a positive integer $N^*$ such that as long as $|T|=N\ge N^*$,
-		\[
-		\mathrm{P}\left(\mathrm{E}[L(Y,(\mathsf{A}(T))(X))]-\mathrm{E}[L(Y,\tilde{f}(X))] \le \varepsilon\right) \ge 1-\delta,
-		\]
-		we say that $\mathsf{A}$ can PAC (probably approximately correctly) identify $\tilde{f}$ from $\mathcal{F}$ and that $\tilde{f}$ is PAC identifiable.
-	\end{definition}
 \end{itemize} 
 
-
+We can easily generalize the assumption that $Y$ is a 1-dimensional random variable, supposing $Y$ is an $n$-dimensional random vector. For example, in the multi-class classification, $Y$ is often assumed to be an $n$-dimensional random vector with components from 0 to 1. And the loss function is taken as
+\[
+L_C=\sum_{i=1}^{n}Y_i\log (f(X)_i)
+\]
+ 
+There are some other possible objectives involving more distribution information rather than minimizing $\mathrm{E}[L(Y,f(X))]$. For instance, we can expect to solve
+\[
+\tilde{f}=\arg\min_{f\in\mathcal{F}}\left(\mathrm{E}[L(Y,f(X))]+c_1\mathrm{Var}[L(Y,f(X))]+c_2 \mathtt{Extreme Value Risk}[L(Y,f(X))]\right).
+\]
+More generally, suppose $\mathrm{Div}(P_1,P_2)$ is a non-negative function measuring the difference between the two distribution $P_1$ and $P_2$. We may expect to find a conditional distribution $\hat{P}(y|x)$ to minimize $$\mathrm{E}[\mathrm{Div}(P(Y|X),\hat{P}(Y|X)].$$
 
 
 		
@@ -202,7 +221,7 @@ R(f)=\mathrm{E}[L(Y,f(X))]\quad\text{ and }\quad\widehat{R}(f)=\frac{1}{N} \sum_
 In the case of binary classifications with a finite hypothesis space, deriving the generalization error bound is relatively simple. Actually, we have the following result.
 
 \begin{theorem}
-	Suppose that the training set $T=\{(X_1,Y_1),(X_2,Y_2),\cdots,(X_{N},Y_{N})\}$ where $X_i\in D\subseteq\mathbb{R}^p$ and $Y_i\in\{+1,-1\}$ is  independently generated from the distribution $\mathrm{P}(x,y)$. If the hypothesis space is a finite set $\mathcal{F}=\{f_1,f_2,\cdots,f_d\}$ and the 0-1 loss function is taken, then  with a probability of not less than $1-\delta$ we have for all $f\in \mathcal{F}$,
+	Suppose that the training sample $\mathbf{S}_N=\{(X_1,Y_1),(X_2,Y_2),\cdots,(X_{N},Y_{N})\}$ where $X_i\in D\subseteq\mathbb{R}^p$ and $Y_i\in\{+1,-1\}$ is  independently generated from the distribution $P(x,y)$. If the hypothesis space is a finite set $\mathcal{F}=\{f_1,f_2,\cdots,f_d\}$ and the 0-1 loss function is taken, then  with a probability of not less than $1-\delta$ we have for all $f\in \mathcal{F}$,
 	\[
 	\widehat{R}(f)-\sqrt{\frac{1}{2 N}\left(\ln d+\ln \frac{1}{\delta}\right)}\le R(f) \le \widehat{R}(f)+\sqrt{\frac{1}{2 N}\left(\ln d+\ln \frac{1}{\delta}\right)}.
 	\]
@@ -306,14 +325,14 @@ $B(n,1) = 1$ for all $n$ since if no subset of size 1 can be shattered, then onl
 	\]
 \end{corollary}
 \begin{theorem}
-Suppose that the training set $T=\{(X_1,Y_1),(X_2,Y_2),\cdots,(X_{N},Y_{N})\}$ where $X_i\in D\subseteq\mathbb{R}^p$ and $Y_i\in\{+1,-1\}$ is  independently generated from the distribution $\mathrm{P}(x,y)$. If the 0-1 loss function is taken, then for any $\mathcal{F}\subseteq\{+1,-1\}^D$, $f\in\mathcal{F}$, tolerance $\delta > 0$,
+Suppose that the training sample $\mathbf{S}_N=\{(X_1,Y_1),(X_2,Y_2),\cdots,(X_{N},Y_{N})\}$ where $X_i\in D\subseteq\mathbb{R}^p$ and $Y_i\in\{+1,-1\}$ is  independently generated from the distribution $P(x,y)$. If the 0-1 loss function is taken, then for any $\mathcal{F}\subseteq\{+1,-1\}^D$, $f\in\mathcal{F}$, tolerance $\delta > 0$,
 \[
 R(f) \le \widehat{R}(f)+\sqrt{\frac{8}{N} \ln \frac{4 \Pi_{\mathcal{F}}(2N)}{\delta}}\le\widehat{R}(f) +\sqrt{\frac{8}{N} \ln \frac{4 (2N)^{d_{VC}}+4}{\delta}}
 \]
 with probability $\ge 1-\delta$.
 \end{theorem}
 \begin{corollary}
-	Suppose that the training set $T=\{(X_1,Y_1),(X_2,Y_2),\cdots,(X_{N},Y_{N})\}$ where $X_i\in D\subseteq\mathbb{R}^p$ and $Y_i\in\{+1,-1\}$ is  independently generated from the distribution $\mathrm{P}(x,y)$. If the 0-1 loss function is taken, then for any $\mathcal{F}\subseteq\{+1,-1\}^D$, $f\in\mathcal{F}$, $N\ge d_{VC}$, tolerance $\delta > 0$,
+	Suppose that the training set $T=\{(X_1,Y_1),(X_2,Y_2),\cdots,(X_{N},Y_{N})\}$ where $X_i\in D\subseteq\mathbb{R}^p$ and $Y_i\in\{+1,-1\}$ is  independently generated from the distribution $P(x,y)$. If the 0-1 loss function is taken, then for any $\mathcal{F}\subseteq\{+1,-1\}^D$, $f\in\mathcal{F}$, $N\ge d_{VC}$, tolerance $\delta > 0$,
 	\[
 	R(f) \le \widehat{R}(f)+\sqrt{\frac{8 d_{VC} \ln \frac{2 \mathrm{e} N}{d_{VC}}+8 \ln \frac{4}{\delta}}{N}}
 	\]
@@ -322,12 +341,12 @@ with probability $\ge 1-\delta$.
 
 \begin{theorem}
 	If $d_{VC}<\infty$, empirical risk minimization algorithm 
-	$$\mathsf{A}_E:T\longmapsto \hat{f}=\arg\min_{f\in\mathcal{F}}\widehat{R}(f) $$
+	$$\mathsf{A}_E:T_N\longmapsto \hat{f}=\arg\min_{f\in\mathcal{F}}\widehat{R}(f) $$
 	can PAC (probably approximately correctly) identify $\tilde{f}$ from $\mathcal{F}$.
 \end{theorem}
 
 \begin{proof} 
-	Given any $\varepsilon>0$, $\delta>0$, $T\in \mathcal{T}$, according to theorem 1.1 we take $d=1$ and
+	Given any $\varepsilon>0$, $\delta>0$, $P(x,y)$ on $\mathbb{R}^{p+1}$, according to theorem 1.1 we take $\mathcal{F}=\{\tilde{f}\}$ and
 	\[
 	\frac{\varepsilon}{2}=\sqrt{\frac{\ln\left( 2 / \delta\right)}{2 N_1}},
 	\]
@@ -359,7 +378,7 @@ Fix $\varepsilon$ and solve for $\delta$
 \]
 Note that when $N_1$, $N_2$ are sufficiently large these inequalities hold for even smaller $\delta>0$. We conclude that there exists a positive integer $N^*$ such that for all $N\ge N^*$,
 \[
-\mathrm{P}\left(\mathrm{E}[L(Y,(\mathsf{A}(T))(X))]-\mathrm{E}[L(Y,\tilde{f}(X))] \le \varepsilon\right) \ge 1-\delta.
+\mathrm{P}\left(\mathrm{E}[L(Y,\hat{f}(X))]-\mathrm{E}[L(Y,\tilde{f}(X))] \le \varepsilon\right) \ge 1-\delta.
 \]
 \end{proof}
 
@@ -458,13 +477,95 @@ in the matrix sense.
 \chapter{SVM}
 
 \section{linear SVM}
-
+Assume that $X\in\mathbb{R}^p$ and that $Y\in G$ is a categorical variable with the set of possible categories $G=\{+1,-1\}$. Linear support vector machine uses the following kind of decision functions to model the relationship between $X$ and $Y$:
+\[
+Y=\mathrm{sign}\left(X^{T} \beta+\beta_{0}\right).
+\]
+Suppose we have already had some training data $T_N=\{(x_1,y_1),(x_2,y_2),\cdots,(x_{N},y_{N})\}$. If we can find a superplane $x^{T} \beta+\beta_{0}=0$ such that
 \begin{align*}
-	\max _{\beta, \beta_{0},\|\beta\|=1} &M\\
-	\text { subject to } y_{i}\left(x_{i}^{T} \beta+\beta_{0}\right)& \geq M, i=1, \ldots, N
+x_i^{T} \beta+\beta_{0}&>0 \text{ if } y_i=+1,\\
+x_i^{T} \beta+\beta_{0}&<0 \text{ if } y_i=-1,
+\end{align*}
+then the empirical loss of the decision function $\hat{f}(X)=\mathrm{sign}\left(X^{T} \beta+\beta_{0}\right)$ on the training data $T_N$ can reach 0. In this case, we say the two classes are linearly separable and our aim is to maximize the "margin" shown as follows.
+\begin{center}
+	\begin{tikzpicture}[node distance=2cm]
+	
+	\draw[->](-1,0)--(5,0) node[right,scale=1]{$x^1$}; %x axis
+	\draw[->](0,-1)--(0,4) node[above,scale=1]{$x^2$}; % y axis
+	\draw[-](0.5,0.5)--(4,3);
+	\draw[-,dashed](0.5-7*0.017,0.75-5*0.017)--(4-7*0.017,3.25-5*0.017);
+	\draw[-,dashed](0.5+7*0.017,0.25+5*0.017)--(4+7*0.017,2.75+5*0.017);
+	\draw (2.5,0.8)node[right,scale=0.8]{$x^{T} \beta+\beta_{0}=-M$};
+	\draw (0.5,3.5)node[right,scale=0.8]{$x^{T} \beta+\beta_{0}=M$};
+	\draw (4.56,3)node[right,scale=0.8]{$x^{T} \beta+\beta_{0}=0$};
+	\draw[->](1.3,3.2)--(2.08,2.02);
+	\draw[->](3.8,1)--(3.1,2);
+	\draw[->](4.5,3)--(4.1,3);
+	\filldraw [blue] (1,2.5) circle [radius=1.5pt]
+					(0.5,1.5) circle [radius=1.5pt]
+					(3,2.7) circle [radius=1.5pt]
+					(3.1,3.2) circle [radius=1.5pt]
+					(2.5,2.6) circle [radius=1.5pt]
+					(1.9,3) circle [radius=1.5pt]
+			  		 (1.2,2.2) circle [radius=1.5pt];
+	\filldraw [orange] (4,2.3) circle [radius=1.5pt]
+	(3.3,1.4) circle [radius=1.5pt]
+	(4,2) circle [radius=1.5pt]
+	(2,1) circle [radius=1.5pt]
+	(1,0.5) circle [radius=1.5pt]
+	(1.6,0.3) circle [radius=1.5pt]
+	(4.5,2.2) circle [radius=1.5pt];
+	\end{tikzpicture}
+\end{center}
+The distance between the superplane $P_0:x^{T} \beta+\beta_{0}=0$ and $P_1:x^{T} \beta+\beta_{0}=M$ is $\tfrac{M}{\Vert \beta\Vert}$, which can be seen from
+\[
+M=(x-y)^T\beta\le\Vert x-y\Vert\cdot\Vert \beta\Vert,\ \forall x\in P_1,\forall y\in P_0.
+\]
+Thus the maximization problem can be stated as
+\begin{align*}
+\max_{\beta, \beta_{0},M}\ &\frac{M}{\Vert \beta\Vert}\\
+\text {s.t. }\quad y_{i}\left(x_{i}^{T} \beta+\beta_{0}\right)& \ge M, \ i=1, \ldots, N.
 \end{align*}
 
+In general, classes usually overlap in feature space. One way to deal
+with the overlap is to still maximize $\tfrac{M}{\Vert \beta\Vert}$, but allow for some points to be on the wrong side of the margin. By defining the slack variables $\xi=\left(\xi_{1}, \xi_{2}, \ldots, \xi_{N}\right)$, we can modify the problem.
+\begin{align*}
+\max_{\beta, \beta_{0},M}\ &\frac{M}{\Vert \beta\Vert}\\
+\text {s.t. }\quad y_{i}\left(x_{i}^{T} \beta+\beta_{0}\right)& \ge M(1-\xi_i), \ i=1, \ldots, N,\\
+\xi_i&\ge 0,\\
+\sum_{i=1}^{N}\xi_i&\le U.
+\end{align*}
+If we set $M=1$, it yields the following maximization problem
+\begin{align*}
+\max_{\beta, \beta_{0}}\ &\frac{1}{\Vert \beta\Vert}\\
+\text {s.t. }\quad y_{i}\left(x_{i}^{T} \beta+\beta_{0}\right)& \ge 1, \ i=1, \ldots, N,
+\end{align*}
+which is equivalent to the following quadratic programming problem
+\begin{align*}
+\min_{\beta, \beta_{0}}\ &\frac{1}{2}\Vert \beta\Vert^2\\
+\text {s.t. }\quad y_{i}\left(x_{i}^{T} \beta+\beta_{0}\right)& \ge 1, \ i=1, \ldots, N.
+\end{align*}
+The optimal solutions of the problem must satisfy some necessary conditions (Karush-Kuhn-Tucker conditions). Consider the Lagrangian function
+\[
+L(\beta, \beta_{0},\lambda)=\frac{1}{2}\Vert \beta\Vert^2-\sum_{i=1}^{N}\lambda_i\left(y_{i}\left(x_{i}^{T} \beta+\beta_{0}\right)-1\right),
+\]
+we have
+\begin{align*}
+&\frac{\partial L}{\partial \beta}=\beta^T-\sum_{i=1}^{N}\lambda_iy_{i}x_i^T=0,\\
+&\frac{\partial L}{\partial \beta_0}=\sum_{i=1}^{N}\lambda_iy_{i}=0,\\
+&\lambda_i\left(y_{i} \left(x_{i}^{T}\beta+\beta_{0}\right)-1\right)=0,\\
+&\lambda_i\ge 0,\\
+&y_{i}\left(x_{i}^{T} \beta+\beta_{0}\right)-1\ge 0.
+\end{align*}
+Cancel $\beta,\beta_0$ and we obtain the dual problem
 
+\begin{align*}
+\max_{\lambda}\ &-\sum_{i=1}^{N}\sum_{j=1}^{N}\lambda_i\lambda_jy_{i}y_{j}x_{i}^{T}x_{j}+\sum_{i=1}^{N}\lambda_i\\
+\text {s.t. }\quad& \sum_{i=1}^{N}\lambda_iy_{i}=0,\\
+&\lambda_i\ge 0.
+\end{align*}
+
+\section{linear SVM}
 
 
 \chapter{KNN}
@@ -538,19 +639,19 @@ the data until some minimum node size (say 5) is reached.
 \[
 \begin{tikzpicture}[scale=1.5]
 %\tikzstyle{every node}=[draw,shape=circle];
-\draw (0,0) node [draw,shape=circle] (x1) {$X_1$};
-\draw (2,0) node [draw,shape=circle] (x2) {$X_2$};
-\draw (4,0) node [draw,shape=circle] (x3) {$X_3$};
+\draw (0,0) node [draw,shape=circle] (x1) {$x_1$};
+\draw (2,0) node [draw,shape=circle] (x2) {$x_2$};
+\draw (4,0) node [draw,shape=circle] (x3) {$x_3$};
 \draw (5,0) node (xdots) {$\cdots\cdots$};
-\draw (6,0) node [draw,shape=circle] (xp) {$X_p$};
-\draw (1,2) node [draw,shape=circle,minimum height=0.92cm] (z1) {$Z_1$};
-\draw (3,2) node [draw,shape=circle,minimum height=0.92cm] (z2) {$Z_2$};
+\draw (6,0) node [draw,shape=circle] (xp) {$x_p$};
+\draw (1,2) node [draw,shape=circle,minimum height=0.92cm] (z1) {$h_1$};
+\draw (3,2) node [draw,shape=circle,minimum height=0.92cm] (z2) {$h_2$};
 \draw (4,2) node (zdots) {$\cdots\cdots$};
-\draw (5,2) node [draw,shape=circle,minimum height=0.92cm] (zm) {$Z_M$};
-\draw (1.5,4) node [draw,shape=circle,minimum height=0.92cm] (y1) {$Y_1$};
-\draw (3,4) node [draw,shape=circle,minimum height=0.92cm] (y2) {$Y_2$};
+\draw (5,2) node [draw,shape=circle,minimum height=0.92cm] (zm) {$h_M$};
+\draw (1.5,4) node [draw,shape=circle,minimum height=0.92cm] (y1) {$y_1$};
+\draw (3,4) node [draw,shape=circle,minimum height=0.92cm] (y2) {$y_2$};
 \draw (3.75,4) node (ydots) {$\cdots\cdots$};
-\draw (4.5,4) node [draw,shape=circle,minimum height=0.92cm] (yk) {$Y_K$};
+\draw (4.5,4) node [draw,shape=circle,minimum height=0.92cm] (yk) {$y_K$};
 \draw 
 (x1) -- node[pos=0.1,above]{} node[pos=0.85,above]{} (z1)
 (x1) -- node[pos=0.1,below]{} node[pos=0.85,below]{}(z2)
@@ -576,10 +677,25 @@ the data until some minimum node size (say 5) is reached.
 ;
 \end{tikzpicture}
 \]
+\subsection{Binary classification}
+In the matrix form
 \[
-\begin{aligned} Z_{m} &=\sigma\left(\alpha_{0 m}+\alpha_{m}^{T} X\right), m=1, \ldots, M \\ T_{k} &=\beta_{0 k}+\beta_{k}^{T} Z, k=1, \ldots, K \\ f_{k}(X) &=g_{k}(T), k=1, \ldots, K 
-\end{aligned}
+y=\sigma(W^{(2)}\mathbf{h}+\mathbf{b}^{(2)}),\mathbf{h}=\sigma(W^{(1)}\mathbf{x}+\mathbf{b}^{(1)}),
 \]
+where $\sigma(x_i)=\frac{1}{1+e^{-x_i}}$.
+
+\subsection{Multi classification}
+In the matrix form
+\[
+\mathbf{y}=\mathtt{softmax}(W^{(2)}\mathbf{h}+\mathbf{b}^{(2)}),\mathbf{h}=\sigma(W^{(1)}\mathbf{x}+\mathbf{b}^{(1)}),
+\]
+where
+\[
+\mathtt{softmax}_k(\mathbf{x})=\frac{e^{x_k}}{\sum_{i=1}^{K}e^{x_i}}. 
+\]
+
+\section{Convolutional neural network}
+
 
 \chapter*{Appendix}
 \section*{1. Hoeffding's inequality} 

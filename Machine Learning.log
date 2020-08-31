@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2019.3.16)  11 SEP 2019 02:06
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2019.3.16)  3 APR 2020 23:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -198,6 +198,41 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip43
 )
+(d:/texlive/2018/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+(d:/texlive/2018/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: xetex.def on input line 225.
+
+(d:/texlive/2018/texmf-dist/tex/latex/colortbl/colortbl.sty
+Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
+
+(d:/texlive/2018/texmf-dist/tex/latex/tools/array.sty
+Package: array 2018/04/07 v2.4g Tabular extension package (FMi)
+\col@sep=\dimen115
+\ar@mcellbox=\box27
+\extrarowheight=\dimen116
+\NC@list=\toks18
+\extratabsurround=\skip44
+\backup@length=\skip45
+\ar@cellbox=\box28
+)
+\everycr=\toks19
+\minrowclearance=\skip46
+)
+LaTeX Info: Redefining \color on input line 709.
+\rownum=\count104
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
 (d:/texlive/2018/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
 
@@ -212,27 +247,27 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: xetex.def on input line 99.
 )
-\Gin@req@height=\dimen115
-\Gin@req@width=\dimen116
+\Gin@req@height=\dimen117
+\Gin@req@width=\dimen118
 )
 (d:/texlive/2018/texmf-dist/tex/latex/tools/enumerate.sty
 Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
-\@enLab=\toks18
+\@enLab=\toks20
 )
 (d:/texlive/2018/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2016/11/25 v2.2 Span multiple rows of a table
-\multirow@colwidth=\skip44
-\multirow@cntb=\count104
-\multirow@dima=\skip45
-\bigstrutjot=\dimen117
+\multirow@colwidth=\skip47
+\multirow@cntb=\count105
+\multirow@dima=\skip48
+\bigstrutjot=\dimen119
 )
 (d:/texlive/2018/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count105
-\float@exts=\toks19
-\float@box=\box27
-\@float@everytoks=\toks20
-\@floatcapt=\box28
+\c@float@type=\count106
+\float@exts=\toks21
+\float@box=\box29
+\@float@everytoks=\toks22
+\@floatcapt=\box30
 )
 (d:/texlive/2018/texmf-dist/tex/latex/tools/bm.sty
 Package: bm 2017/01/16 v1.2c Bold Symbol Support (DPC/FMi)
@@ -242,45 +277,11 @@ Package: bm 2017/01/16 v1.2c Bold Symbol Support (DPC/FMi)
 LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 141.
 LaTeX Info: Redefining \bm on input line 207.
 )
-(d:/texlive/2018/texmf-dist/tex/latex/tools/array.sty
-Package: array 2018/04/07 v2.4g Tabular extension package (FMi)
-\col@sep=\dimen118
-\ar@mcellbox=\box29
-\extrarowheight=\dimen119
-\NC@list=\toks21
-\extratabsurround=\skip46
-\backup@length=\skip47
-\ar@cellbox=\box30
-)
 (d:/texlive/2018/texmf-dist/tex/latex/makecell/makecell.sty
 Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
 \rotheadsize=\dimen120
-\c@nlinenum=\count106
-\TeXr@lab=\toks22
-)
-(d:/texlive/2018/texmf-dist/tex/latex/xcolor/xcolor.sty
-Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
-
-(d:/texlive/2018/texmf-dist/tex/latex/graphics-cfg/color.cfg
-File: color.cfg 2016/01/02 v1.6 sample color configuration
-)
-Package xcolor Info: Driver file: xetex.def on input line 225.
-
-(d:/texlive/2018/texmf-dist/tex/latex/colortbl/colortbl.sty
-Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
-\everycr=\toks23
-\minrowclearance=\skip48
-)
-LaTeX Info: Redefining \color on input line 709.
-\rownum=\count107
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
-Package xcolor Info: Model `RGB' extended on input line 1364.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+\c@nlinenum=\count107
+\TeXr@lab=\toks23
 )
 (d:/texlive/2018/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2017/09/02 v2.17a AMS math features
@@ -352,178 +353,56 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
 \symrsfs=\mathgroup9
 )
-(d:/texlive/2018/texmf-dist/tex/latex/mathdesign/mathdesign.sty
-Package: mathdesign 2013/08/29 v2.31 Math Design Project
-
-(d:/texlive/2018/texmf-dist/tex/latex/base/ifthen.sty
-Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
-)
-(d:/texlive/2018/texmf-dist/tex/latex/mathdesign/mdbch/mdbch.cfg)
-(d:/texlive/2018/texmf-dist/tex/latex/mathdesign/mdbch/mdbch.sty
-Package: mdbch 2013/08/29 v2.31 bitstream bitstream charter + mdbch (Math Desig
-n Project)
-
-(d:/texlive/2018/texmf-dist/tex/latex/mathdesign/mdfont.def
-File: mdfont.def 2013/08/29 v2.31 (Math Design Project)
-)
-(d:/texlive/2018/texmf-dist/tex/latex/mathdesign/mdsffont.def
-File: mdsffont.def 2013/08/29 v2.31 (Math Design Project)
-)
-(d:/texlive/2018/texmf-dist/tex/latex/mathdesign/mdttfont.def
-File: mdttfont.def 2013/08/29 v2.31 (Math Design Project)
-)
-\symmdcal=\mathgroup10
-LaTeX Font Info:    Overwriting symbol font `mdcal' in version `bold'
-(Font)                  OMS/mdbch/m/n --> OMS/mdbch/b/n on input line 97.
-\symmdscr=\mathgroup11
-LaTeX Font Info:    Overwriting symbol font `mdscr' in version `bold'
-(Font)                  OMS/mdbch/m/n --> OMS/mdbch/b/n on input line 103.
-LaTeX Font Info:    Redeclaring math alphabet \mathfrak on input line 109.
-LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `normal'
-(Font)                  U/euf/m/n --> U/xmdeuf/m/n on input line 109.
-LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
-(Font)                  U/euf/b/n --> U/xmdeuf/m/n on input line 109.
-LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
-(Font)                  U/xmdeuf/m/n --> U/xmdeuf/b/n on input line 110.
-LaTeX Info: Redefining \frak on input line 111.
-LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/mdbch/m/n on input line 121.
-LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
-(Font)                  OML/cmm/m/it --> OML/mdbch/m/it on input line 122.
-LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
-(Font)                  OMS/cmsy/m/n --> OMS/mdbch/m/n on input line 123.
-LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
-(Font)                  OMX/cmex/m/n --> OMX/mdbch/m/n on input line 124.
-LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/mdbch/b/n on input line 126.
-LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
-(Font)                  OML/cmm/b/it --> OML/mdbch/b/it on input line 127.
-LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  OMS/cmsy/b/n --> OMS/mdbch/b/n on input line 128.
-LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
-(Font)                  OMX/cmex/m/n --> OMX/mdbch/b/n on input line 129.
-LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/mdbch/m/n --> TU/mdbch/m/n on input line 131.
-LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/mdbch/b/n on input line 132.
-LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/mdbch/m/it on input line 133.
-LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 134.
-LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 135.
-LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/mdbch/b/n --> TU/mdbch/b/n on input line 137.
-LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/mdbch/b/n on input line 138.
-LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/mdbch/b/it on input line 139.
-LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 140.
-LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 141.
-\symlettersupright=\mathgroup12
-LaTeX Font Info:    Overwriting symbol font `lettersupright' in version `bold'
-(Font)                  OML/mdbch/m/n --> OML/mdbch/b/n on input line 144.
-LaTeX Font Info:    Redeclaring math alphabet \mathrm on input line 145.
-LaTeX Font Info:    Overwriting math alphabet `\mathcal' in version `normal'
-(Font)                  OMS/mdbch/m/n --> OMS/mdbch/m/n on input line 167.
-
-(d:/texlive/2018/texmf-dist/tex/latex/xkeyval/xkeyval.sty
-Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
-
-(d:/texlive/2018/texmf-dist/tex/generic/xkeyval/xkeyval.tex
-(d:/texlive/2018/texmf-dist/tex/generic/xkeyval/xkvutils.tex
-\XKV@toks=\toks29
-\XKV@tempa@toks=\toks30
-)
-\XKV@depth=\count120
-File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
-))
-LaTeX Font Info:    Try loading font information for TU+mdbch on input line 186
-.
-LaTeX Font Info:    No file TUmdbch.fd. on input line 186.
-
-
-LaTeX Font Warning: Font shape `TU/mdbch/m/n' undefined
-(Font)              using `TU/lmr/m/n' instead on input line 186.
-
-LaTeX Font Info:    Redeclaring math accent \widetilde on input line 449.
-LaTeX Font Info:    Redeclaring math accent \widehat on input line 450.
-\symmathdesignA=\mathgroup13
-LaTeX Font Info:    Overwriting symbol font `mathdesignA' in version `bold'
-(Font)                  MDA/mdbch/m/n --> MDA/mdbch/b/n on input line 491.
-LaTeX Font Info:    Overwriting encoding scheme math defaults on input line 493
-.
-\symmathdesignB=\mathgroup14
-LaTeX Font Info:    Overwriting symbol font `mathdesignB' in version `bold'
-(Font)                  MDB/mdbch/m/n --> MDB/mdbch/b/n on input line 498.
-LaTeX Info: Redefining \bold on input line 510.
-LaTeX Font Info:    Redeclaring math accent \widetilde on input line 532.
-LaTeX Font Info:    Redeclaring math accent \widehat on input line 533.
-\rulethickness=\skip52
-) (d:/texlive/2018/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2017/04/05 v2.0i Standard LaTeX package
-
-(d:/texlive/2018/texmf-dist/tex/latex/base/t1enc.def
-File: t1enc.def 2017/04/05 v2.0i Standard LaTeX file
-LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
-)
-LaTeX Font Info:    Try loading font information for T1+mdbch on input line 105
-.
-
-(d:/texlive/2018/texmf-dist/tex/latex/mathdesign/mdbch/t1mdbch.fd
-File: t1mdbch.fd 2013/08/29 Fontinst v1.933 font definitions for T1/mdbch.
-)
-LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 105.
-))
 (d:/texlive/2018/texmf-dist/tex/latex/ntheorem/ntheorem.sty
 Style `ntheorem', Version 1.33 <2011/08/15>
 Package: ntheorem 2011/08/15 1.33
-\theorem@style=\toks31
-\theorem@@style=\toks32
-\theorembodyfont=\toks33
-\theoremnumbering=\toks34
-\theorempreskipamount=\skip53
-\theorempostskipamount=\skip54
-\theoremframepreskipamount=\skip55
-\theoremframepostskipamount=\skip56
-\theoreminframepreskipamount=\skip57
-\theoreminframepostskipamount=\skip58
-\theorem@preskip=\toks35
-\theorem@postskip=\toks36
-\theorem@framepreskip=\toks37
-\theorem@framepostskip=\toks38
-\theorem@inframepreskip=\toks39
-\theorem@inframepostskip=\toks40
+(d:/texlive/2018/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\theorem@style=\toks29
+\theorem@@style=\toks30
+\theorembodyfont=\toks31
+\theoremnumbering=\toks32
+\theorempreskipamount=\skip52
+\theorempostskipamount=\skip53
+\theoremframepreskipamount=\skip54
+\theoremframepostskipamount=\skip55
+\theoreminframepreskipamount=\skip56
+\theoreminframepostskipamount=\skip57
+\theorem@preskip=\toks33
+\theorem@postskip=\toks34
+\theorem@framepreskip=\toks35
+\theorem@framepostskip=\toks36
+\theorem@inframepreskip=\toks37
+\theorem@inframepostskip=\toks38
 \theoremindent=\dimen130
 \theorem@indent=\dimen131
 \theoremrightindent=\dimen132
 \theorem@rightindent=\dimen133
-\theoremheaderfont=\toks41
-\theoremseparator=\toks42
-\theoremprework=\toks43
-\theorempostwork=\toks44
-\theoremsymbol=\toks45
+\theoremheaderfont=\toks39
+\theoremseparator=\toks40
+\theoremprework=\toks41
+\theorempostwork=\toks42
+\theoremsymbol=\toks43
+\qedsymbol=\toks44
+\theoremkeyword=\toks45
 \qedsymbol=\toks46
-\theoremkeyword=\toks47
-\qedsymbol=\toks48
-\thm@topsep=\skip59
-\thm@topsepadd=\skip60
+\thm@topsep=\skip58
+\thm@topsepadd=\skip59
 Package ntheorem Info: Option `thmmarks' loaded on input line 1175.
-\c@endNonectr=\count121
-\c@currNonectr=\count122
-\mysavskip=\skip61
+\c@endNonectr=\count120
+\c@currNonectr=\count121
+\mysavskip=\skip60
 Package ntheorem Info: option `amsmath' handling for `thmmarks' loaded on input
  line 1175.
 \thm@amstmpdepth=\dimen134
 \tagwidth=\dimen135
-) (d:/texlive/2018/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+)
+(d:/texlive/2018/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
 (d:/texlive/2018/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
 (d:/texlive/2018/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
 (d:/texlive/2018/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
-\pgfutil@everybye=\toks49
+\pgfutil@everybye=\toks47
 \pgfutil@tempdima=\dimen136
 \pgfutil@tempdimb=\dimen137
 
@@ -545,11 +424,11 @@ Package: pgf 2015/08/07 v3.0.1a (rcs-revision 1.15)
 Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
 
 (d:/texlive/2018/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks50
-\pgfkeys@temptoks=\toks51
+\pgfkeys@pathtoks=\toks48
+\pgfkeys@temptoks=\toks49
 
 (d:/texlive/2018/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.tex
-\pgfkeys@tmptoks=\toks52
+\pgfkeys@tmptoks=\toks50
 ))
 \pgf@x=\dimen138
 \pgf@y=\dimen139
@@ -561,13 +440,13 @@ Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
 \pgf@yc=\dimen145
 \w@pgf@writea=\write3
 \r@pgf@reada=\read1
-\c@pgf@counta=\count123
-\c@pgf@countb=\count124
-\c@pgf@countc=\count125
-\c@pgf@countd=\count126
-\t@pgf@toka=\toks53
-\t@pgf@tokb=\toks54
-\t@pgf@tokc=\toks55
+\c@pgf@counta=\count122
+\c@pgf@countb=\count123
+\c@pgf@countc=\count124
+\c@pgf@countd=\count125
+\t@pgf@toka=\toks51
+\t@pgf@tokb=\toks52
+\t@pgf@tokc=\toks53
  (d:/texlive/2018/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
 )
@@ -582,12 +461,12 @@ File: pgfsys-dvipdfmx.def 2014/07/09  (rcs-revision 1.14)
 (d:/texlive/2018/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
 File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
 )
-\pgfsys@objnum=\count127
+\pgfsys@objnum=\count126
 )))
 (d:/texlive/2018/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
-\pgfsyssoftpath@smallbuffer@items=\count128
-\pgfsyssoftpath@bigbuffer@items=\count129
+\pgfsyssoftpath@smallbuffer@items=\count127
+\pgfsyssoftpath@bigbuffer@items=\count128
 )
 (d:/texlive/2018/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
@@ -599,11 +478,11 @@ Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
 (d:/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
 (d:/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen146
-\pgfmath@count=\count130
+\pgfmath@count=\count129
 \pgfmath@box=\box34
-\pgfmath@toks=\toks56
-\pgfmath@stack@operand=\toks57
-\pgfmath@stack@operation=\toks58
+\pgfmath@toks=\toks54
+\pgfmath@stack@operand=\toks55
+\pgfmath@stack@operation=\toks56
 )
 (d:/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex
 (d:/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.te
@@ -623,7 +502,7 @@ x)
 (d:/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithm
 etics.code.tex)))
 (d:/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count131
+\c@pgfmathroundto@lastzeros=\count130
 ))
 (d:/texlive/2018/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
@@ -659,7 +538,7 @@ File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
 \pgfpic=\box35
 \pgf@hbox=\box36
 \pgf@layerbox@main=\box37
-\pgf@picture@serial@count=\count132
+\pgf@picture@serial@count=\count131
 )
 (d:/texlive/2018/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code
 .tex
@@ -690,7 +569,7 @@ File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
 (d:/texlive/2018/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
 \pgf@max=\dimen170
-\pgf@sys@shading@range@num=\count133
+\pgf@sys@shading@range@num=\count132
 )
 (d:/texlive/2018/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
@@ -736,8 +615,8 @@ Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
 (d:/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
 \pgffor@iter=\dimen173
 \pgffor@skip=\dimen174
-\pgffor@stack=\toks59
-\pgffor@toks=\toks60
+\pgffor@stack=\toks57
+\pgffor@toks=\toks58
 ))
 (d:/texlive/2018/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
@@ -745,7 +624,7 @@ Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
 (d:/texlive/2018/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.co
 de.tex
 File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
-\pgf@plot@mark@count=\count134
+\pgf@plot@mark@count=\count133
 \pgfplotmarksize=\dimen175
 )
 \tikz@lastx=\dimen176
@@ -758,79 +637,65 @@ File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
 \tikz@figbox@bg=\box41
 \tikz@tempbox=\box42
 \tikz@tempbox@bg=\box43
-\tikztreelevel=\count135
-\tikznumberofchildren=\count136
-\tikznumberofcurrentchild=\count137
-\tikz@fig@count=\count138
+\tikztreelevel=\count134
+\tikznumberofchildren=\count135
+\tikznumberofcurrentchild=\count136
+\tikz@fig@count=\count137
 
 (d:/texlive/2018/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
-\pgfmatrixcurrentrow=\count139
-\pgfmatrixcurrentcolumn=\count140
-\pgf@matrix@numberofcolumns=\count141
+\pgfmatrixcurrentrow=\count138
+\pgfmatrixcurrentcolumn=\count139
+\pgf@matrix@numberofcolumns=\count140
 )
-\tikz@expandcount=\count142
+\tikz@expandcount=\count141
 
 (d:/texlive/2018/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
 brarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
 )))
-\c@currdefinitionctr=\count143
-\c@enddefinitionctr=\count144
-\c@definition=\count145
-\c@currexamplectr=\count146
-\c@endexamplectr=\count147
-\c@example=\count148
-\c@currpropositionctr=\count149
-\c@endpropositionctr=\count150
-\c@proposition=\count151
-\c@currcorollaryctr=\count152
-\c@endcorollaryctr=\count153
-\c@corollary=\count154
-\c@currtheoremctr=\count155
-\c@endtheoremctr=\count156
-\c@theorem=\count157
-\c@currlemmactr=\count158
-\c@endlemmactr=\count159
-\c@lemma=\count160
-\c@currproofctr=\count161
-\c@endproofctr=\count162
-\c@proof=\count163
+\c@currdefinitionctr=\count142
+\c@enddefinitionctr=\count143
+\c@definition=\count144
+\c@currexamplectr=\count145
+\c@endexamplectr=\count146
+\c@example=\count147
+\c@currpropositionctr=\count148
+\c@endpropositionctr=\count149
+\c@proposition=\count150
+\c@currcorollaryctr=\count151
+\c@endcorollaryctr=\count152
+\c@corollary=\count153
+\c@currtheoremctr=\count154
+\c@endtheoremctr=\count155
+\c@theorem=\count156
+\c@currlemmactr=\count157
+\c@endlemmactr=\count158
+\c@lemma=\count159
+\c@currproofctr=\count160
+\c@endproofctr=\count161
+\c@proof=\count162
  (./Machine Learning.aux)
 \openout1 = `"Machine Learning.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for MDA/cmr/m/n on input line 55.
-LaTeX Font Info:    Try loading font information for MDA+cmr on input line 55.
-
-(d:/texlive/2018/texmf-dist/tex/latex/mathdesign/mdacmr.fd
-File: mdacmr.fd 
-)
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for MDB/cmr/m/n on input line 55.
-LaTeX Font Info:    Try loading font information for MDB+cmr on input line 55.
-
-(d:/texlive/2018/texmf-dist/tex/latex/mathdesign/mdbcmr.fd
-File: mdbcmr.fd 
-)
-LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -867,111 +732,31 @@ LaTeX Font Info:    ... okay on input line 55.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box44
-Package hyperref Info: Link coloring ON on input line 55.
+Package hyperref Info: Link coloring ON on input line 58.
 (d:/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
 (d:/texlive/2018/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count164
+\c@section@level=\count163
 )
-LaTeX Info: Redefining \ref on input line 55.
-LaTeX Info: Redefining \pageref on input line 55.
-LaTeX Info: Redefining \nameref on input line 55.
+LaTeX Info: Redefining \ref on input line 58.
+LaTeX Info: Redefining \pageref on input line 58.
+LaTeX Info: Redefining \nameref on input line 58.
 
 (./Machine Learning.out) (./Machine Learning.out)
 \@outlinefile=\write4
 \openout4 = `"Machine Learning.out"'.
 
 
-
-Package mathdesign/mdbch Warning: Package 'mathrsfs' shouldn't be used in conjo
-nction with package mdbch, on input line 55.
-
-
-Package mathdesign/mdbch Warning: Package 'amsfonts' shouldn't be used in conjo
-nction with package mdbch, on input line 55.
-
 ABD: EveryShipout initializing macros
-LaTeX Font Info:    Font shape `T1/mdbch/m/fsc' will be
-(Font)              scaled to size 9.60007pt on input line 59.
-LaTeX Font Info:    Font shape `T1/mdbch/m/fsc' will be
-(Font)              scaled to size 23.88496pt on input line 59.
-LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 13.82408pt on input line 62.
-LaTeX Font Info:    Try loading font information for T1+lmss on input line 65.
-
-(d:/texlive/2018/texmf-dist/tex/latex/lm/t1lmss.fd
-File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 11.52008pt on input line 68.
-
 (d:/texlive/2018/texmf-dist/tex/generic/oberdiek/se-ascii-print.def
 File: se-ascii-print.def 2016/05/16 v1.11 stringenc: Printable ASCII characters
 
 ) [1
 
 ]
-Chapter 1.
-LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 19.91054pt on input line 72.
-LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 19.91054pt on input line 72.
-LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 23.88496pt on input line 72.
-LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 13.82408pt on input line 74.
-LaTeX Font Info:    Try loading font information for OMS+mdbch on input line 77
-.
-(d:/texlive/2018/texmf-dist/tex/latex/mathdesign/mdbch/omsmdbch.fd
-File: omsmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for OMS/mdbch.
-)
-LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 77.
-LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 9.60007pt on input line 77.
-LaTeX Font Info:    Try loading font information for OT1+mdbch on input line 77
-.
-
-(d:/texlive/2018/texmf-dist/tex/latex/mathdesign/mdbch/ot1mdbch.fd
-File: ot1mdbch.fd 2013/08/29 Fontinst v1.933 font definitions for OT1/mdbch.
-)
-LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 77.
-LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 77.
-LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 77.
-LaTeX Font Info:    Try loading font information for OML+mdbch on input line 77
-.
-
-(d:/texlive/2018/texmf-dist/tex/latex/mathdesign/mdbch/omlmdbch.fd
-File: omlmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for OML/mdbch.
-)
-LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 9.60007pt on input line 77.
-LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 6.72005pt on input line 77.
-LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 4.80003pt on input line 77.
-LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 77.
-LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 77.
-LaTeX Font Info:    Try loading font information for OMX+mdbch on input line 77
-.
-
-(d:/texlive/2018/texmf-dist/tex/latex/mathdesign/mdbch/omxmdbch.fd
-File: omxmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for OMX/mdbch.
-)
-LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 77.
-LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 77.
-LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 77.
 LaTeX Font Info:    Try loading font information for U+msa on input line 77.
 
 (d:/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -986,154 +771,114 @@ LaTeX Font Info:    Try loading font information for U+rsfs on input line 77.
 
 (d:/texlive/2018/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-)
-LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 77.
-LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 77.
-LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 77.
-LaTeX Font Info:    Try loading font information for MDA+mdbch on input line 77
-.
-
-(d:/texlive/2018/texmf-dist/tex/latex/mathdesign/mdbch/mdamdbch.fd
-File: mdamdbch.fd 2013/08/29 Fontinst v1.933 font definitions for MDA/mdbch.
-)
-LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 77.
-LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 77.
-LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 77.
-LaTeX Font Info:    Try loading font information for MDB+mdbch on input line 77
-.
-
-(d:/texlive/2018/texmf-dist/tex/latex/mathdesign/mdbch/mdbmdbch.fd
-File: mdbmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for MDB/mdbch.
-)
-LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 77.
-LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 77.
-LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 77.
-LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 77.
-LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 4.80003pt on input line 77.
- [2
+) [2
 
 ]
+Chapter 1.
 
-Package xcolor Warning: Incompatible color definition on input line 116.
+Overfull \hbox (35.24553pt too wide) detected at line 113
+\OML/cmm/m/it/10 L[] \OT1/cmr/m/n/10 = (\OML/cmm/m/it/10 Y \OMS/cmsy/m/n/10 ^^@
+ \OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 ))[] [] \
+OML/cmm/m/it/10 L[] \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 Y \OMS
+/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X\OT1/cmr/
+m/n/10 )\OMS/cmsy/m/n/10 j [] \OML/cmm/m/it/10 L[] \OT1/cmr/m/n/10 = 1[][]\OML/
+cmm/m/it/10 L[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 Y [] f\OT1/cmr/m/n/10 (\OML/
+cmm/m/it/10 X\OT1/cmr/m/n/10 ) + (1 \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 Y\OT1
+/cmr/m/n/10 ) [](1 \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML
+/cmm/m/it/10 X\OT1/cmr/m/n/10 ))\OML/cmm/m/it/10 :
+ []
 
-LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 116.
-LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 116.
-LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 5.76004pt on input line 116.
-LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 7.68005pt on input line 116.
-LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 5.76004pt on input line 116.
-LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 116.
-LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 5.76004pt on input line 116.
-LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 116.
-LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 5.76004pt on input line 116.
-LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 116.
-LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 5.76004pt on input line 116.
-LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 116.
-LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 5.76004pt on input line 116.
-LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 116.
-LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 5.76004pt on input line 116.
-LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 5.76004pt on input line 116.
+[3
+
+]
 Package hyperref Info: bookmark level for unknown definition defaults to 0 on i
-nput line 131.
-LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 11.52008pt on input line 148.
-[3]
-Missing character: There is no – in font mdbchr8t!
- [4]
+nput line 126.
+
+
+Package xcolor Warning: Incompatible color definition on input line 137.
+
+
+Overfull \hbox (7.8715pt too wide) in paragraph at lines 137--138
+[]\TU/lmr/m/n/10 Empirical risk minimization: according to the law of large num
+bers, if some regular conditions$[][][][][]$
+ []
+
+[4]
+Overfull \hbox (8.66225pt too wide) in paragraph at lines 193--194
+\TU/lmr/m/n/10 Assume that $\OML/cmm/m/it/10 Y \OMS/cmsy/m/n/10 2 \OML/cmm/m/it
+/10 G$ \TU/lmr/m/n/10 is a categorical variable and that the set of possible ca
+tegories $\OML/cmm/m/it/10 G \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 f\OML/cmm/m/it/
+10 G[]; G[]; []  ; G[]\OMS/cmsy/m/n/10 g$\TU/lmr/m/n/10 .
+ []
+
+[5]
 Package hyperref Info: bookmark level for unknown theorem defaults to 0 on inpu
-t line 205.
-LaTeX Font Info:    Font shape `T1/mdbch/m/it' will be
-(Font)              scaled to size 9.60007pt on input line 211.
+t line 224.
 Package hyperref Info: bookmark level for unknown proof defaults to 0 on input 
-line 211.
- [5]
-LaTeX Font Info:    Font shape `U/xmdeuf/m/n' will be
-(Font)              scaled to size 9.66995pt on input line 281.
-LaTeX Font Info:    Font shape `U/xmdeuf/m/n' will be
-(Font)              scaled to size 6.76897pt on input line 281.
-LaTeX Font Info:    Font shape `U/xmdeuf/m/n' will be
-(Font)              scaled to size 4.83498pt on input line 281.
+line 230.
+ [6]
+Overfull \hbox (15.78221pt too wide) in paragraph at lines 261--262
+[]\TU/lmr/m/n/10 The \TU/lmr/m/it/10 dichotomies \TU/lmr/m/n/10 generated by $\
+OMS/cmsy/m/n/10 F ^^R f\OT1/cmr/m/n/10 +1\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 ^^
+@\OT1/cmr/m/n/10 1\OMS/cmsy/m/n/10 g[]$ \TU/lmr/m/n/10 on the points $\OML/cmm/
+m/it/10 x[]; []  ; x[] \OMS/cmsy/m/n/10 2
+ []
+
+[7]
+LaTeX Font Info:    Try loading font information for U+euf on input line 300.
+ (d:/texlive/2018/texmf-dist/tex/latex/amsfonts/ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+)
 Package hyperref Info: bookmark level for unknown corollary defaults to 0 on in
-put line 303.
- [6] [7] [8]
+put line 322.
+ [8]
+Overfull \hbox (2.14757pt too wide) detected at line 374
+[][]
+ []
+
+[9] [10]
 Chapter 2.
-
-LaTeX Font Warning: Font shape `TU/mdbch/b/n' undefined
-(Font)              using `TU/mdbch/m/n' instead on input line 387.
-
-[9
-
-] [10]
-Chapter 3.
 [11
 
-]
+] [12]
+Chapter 3.
+[13
+
+] [14] [15]
 Chapter 4.
-[12
+[16
 
 ]
 Chapter 5.
-[13
+[17
 
-] [14]
+] [18]
 Chapter 6.
-[15
+[19
 
 ]
-LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 23.88496pt on input line 584.
 \tf@thm=\write5
 \openout5 = `"Machine Learning.thm"'.
 
- [16
+ [20
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 588.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 588.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 704.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 704.
  (./Machine Learning.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 588.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 588.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 704.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 704.
 Package rerunfilecheck Info: File `"Machine Learning".out' has not changed.
 (rerunfilecheck)             Checksum: .
-
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 588.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 704.
  ) 
 Here is how much of TeX's memory you used:
- 21675 strings out of 492970
- 376449 string characters out of 6137298
- 447644 words of memory out of 5000000
- 25278 multiletter control sequences out of 15000+600000
- 69764 words of font info for 107 fonts, out of 8000000 for 9000
+ 20363 strings out of 492970
+ 357272 string characters out of 6137298
+ 440772 words of memory out of 5000000
+ 24011 multiletter control sequences out of 15000+600000
+ 17090 words of font info for 84 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 55i,11n,54p,1117b,547s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,11n,54p,1117b,562s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Machine Learning.pdf (16 pages).
+Output written on Machine Learning.pdf (20 pages).
