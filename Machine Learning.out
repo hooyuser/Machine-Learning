@@ -1,23 +1,23 @@
 \BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
-\BOOKMARK [1][-]{section.1.1}{Terminology\040and\040Framework}{chapter.1}% 2
-\BOOKMARK [1][-]{section.1.2}{Find\040the\040Form\040of\040Optimal\040Decision\040Function\040}{chapter.1}% 3
-\BOOKMARK [2][-]{subsection.1.2.1}{Loss\040function\040for\040quantitative\040output\040variables:\040squared\040error\040loss}{section.1.2}% 4
-\BOOKMARK [2][-]{subsection.1.2.2}{Loss\040function\040for\040categorical\040output\040variable:\0400-1\040indicator}{section.1.2}% 5
-\BOOKMARK [1][-]{section.1.3}{Generalization\040Error\040Bound}{chapter.1}% 6
+\BOOKMARK [1][-]{section.1.1}{Terminology and Framework}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Optimal Decision Functions in Special Cases}{chapter.1}% 3
+\BOOKMARK [2][-]{subsection.1.2.1}{Loss function for quantitative output variables: squared error loss}{section.1.2}% 4
+\BOOKMARK [2][-]{subsection.1.2.2}{Loss function for categorical output variable: 0-1 indicator}{section.1.2}% 5
+\BOOKMARK [1][-]{section.1.3}{Generalization Error Bound}{chapter.1}% 6
 \BOOKMARK [1][-]{section.1.4}{tradeoff}{chapter.1}% 7
-\BOOKMARK [0][-]{chapter.2}{Linear\040Model}{}% 8
-\BOOKMARK [1][-]{section.2.1}{Finite\040Sample\040Linear\040Model}{chapter.2}% 9
-\BOOKMARK [2][-]{subsection.2.1.1}{Statistic\040model\040setup}{section.2.1}% 10
-\BOOKMARK [2][-]{subsection.2.1.2}{Ordinary\040least\040square\040estimate}{section.2.1}% 11
+\BOOKMARK [0][-]{chapter.2}{Linear Model}{}% 8
+\BOOKMARK [1][-]{section.2.1}{Finite Sample Linear Model}{chapter.2}% 9
+\BOOKMARK [2][-]{subsection.2.1.1}{Statistic model setup}{section.2.1}% 10
+\BOOKMARK [2][-]{subsection.2.1.2}{Ordinary least square estimate}{section.2.1}% 11
 \BOOKMARK [0][-]{chapter.3}{SVM}{}% 12
-\BOOKMARK [1][-]{section.3.1}{linear\040SVM}{chapter.3}% 13
-\BOOKMARK [1][-]{section.3.2}{linear\040SVM}{chapter.3}% 14
+\BOOKMARK [1][-]{section.3.1}{linear SVM}{chapter.3}% 13
+\BOOKMARK [1][-]{section.3.2}{linear SVM}{chapter.3}% 14
 \BOOKMARK [0][-]{chapter.4}{KNN}{}% 15
-\BOOKMARK [1][-]{section.4.1}{Nearest-neighbor\040methods}{chapter.4}% 16
-\BOOKMARK [0][-]{chapter.5}{Decision\040Tree}{}% 17
-\BOOKMARK [1][-]{section.5.1}{Regression\040Trees}{chapter.5}% 18
-\BOOKMARK [0][-]{chapter.6}{Neural\040Networks}{}% 19
-\BOOKMARK [1][-]{section.6.1}{Single\040hidden\040layer\040back-propagation\040network}{chapter.6}% 20
-\BOOKMARK [2][-]{subsection.6.1.1}{Binary\040classification}{section.6.1}% 21
-\BOOKMARK [2][-]{subsection.6.1.2}{Multi\040classification}{section.6.1}% 22
-\BOOKMARK [1][-]{section.6.2}{Convolutional\040neural\040network}{chapter.6}% 23
+\BOOKMARK [1][-]{section.4.1}{Nearest-neighbor methods}{chapter.4}% 16
+\BOOKMARK [0][-]{chapter.5}{Decision Tree}{}% 17
+\BOOKMARK [1][-]{section.5.1}{Regression Trees}{chapter.5}% 18
+\BOOKMARK [0][-]{chapter.6}{Neural Networks}{}% 19
+\BOOKMARK [1][-]{section.6.1}{Single hidden layer back-propagation network}{chapter.6}% 20
+\BOOKMARK [2][-]{subsection.6.1.1}{Binary classification}{section.6.1}% 21
+\BOOKMARK [2][-]{subsection.6.1.2}{Multi classification}{section.6.1}% 22
+\BOOKMARK [1][-]{section.6.2}{Convolutional neural network}{chapter.6}% 23

@@ -14,6 +14,7 @@
 \usepackage{multirow}
 \usepackage{float}
 \usepackage{bm}
+\usepackage{bbm}
 \usepackage{array,makecell}
 
 
@@ -65,7 +66,7 @@
 	{\Large From the Perspective of Statistics}
 	~\\
 	\vspace{6em}
-	\textsf{Huyi Chen}
+	\textsf{H.C.}
 	~\\
 	\vspace{5in}  
 	{\large Latest Update: \today}
@@ -98,7 +99,7 @@
 		$$
 	\end{itemize}	
 
-	\item \textbf{Objective}: Given the training set $T_N$, find a decision function $\hat{f}\in\mathcal{F}\subset \mathbb{R}^{(\mathbb{R}^p)}$ to produce as little expected prediction error (EPE) 
+	\item \textbf{Objective}: Given the training set $T_N$, find a decision function $\hat{f}\in\mathcal{F}\subset \mathbb{R}^{(\mathbb{R}^p)}$ that produces as little expected prediction error (EPE) 
 	\[
 	\mathrm{E}_{X,Y}[L(Y,f(X))]
 	\]
@@ -119,7 +120,7 @@
 	\]
 	in virtue of the optimization theory. In other words, what need to be settled is purely an optimization problem rather than a statistical problem. In particular, in the case of $Y=f(X)$, if $f\in\mathcal{F}$, then the optimal $\tilde{f}$ coincides with the function $f$ itself and the minimum of EPE can reach 0. 
 	
-	Unfortunately, the specific distribution of $(X,Y)$ is inaccessible in reality. Thus we can only exploit the training data to estimate an acceptable decision function $\hat{f}$, with acceptance of the fact that $\hat{f}$ in general has a greater EPE than $\tilde{f}$. 
+	Unfortunately, the specific distribution of $(X,Y)$ is typically inaccessible in reality. Thus we can only exploit the training data to estimate an acceptable decision function $\hat{f}$, with acceptance of the fact that $\hat{f}$ in general has a greater EPE than $\tilde{f}$. 
 	
 	\item \textbf{Learning Algorithm}: 
 	A learning algorithm is a measurable mappings $\mathsf{A}:(D\times G)^\mathbb{N}\to \mathcal{F}$ sending the training set $T_N$ to the decision function $\mathsf{A}(T_N)=\hat{f}\in \mathcal{F}$, where $T_N\in(D\times G)^N$ is identified with an element in $(D\times G)^\mathbb{N}$ by the natural inclusion.
@@ -139,7 +140,7 @@
 		\min_{f\in\mathcal{F}}\frac{1}{N}\sum_{i=1}^{N}L(Y_i,f(X_i))
 		\]
 		
-		\item Structural risk minimization: In reality, the size of training set $N$ is limited and accordingly the method of empirical risk minimization may not generate a function $\hat{f}$ which is sufficiently close to $\tilde{f}$. Later we will elaborate this phenomenon named "overfitting". However, if we add a regularizer or penalty term $\lambda J(f)$ to penalize the complexity of the decision function $f$ as follows
+		\item Structural risk minimization: In reality, the size of training set $N$ is limited and accordingly the method of empirical risk minimization may not generate a function $\hat{f}$ which is sufficiently close to $\tilde{f}$. Later we will elaborate this phenomenon named ``overfitting". However, if we add a regularizer or penalty term $\lambda J(f)$ to penalize the complexity of the decision function $f$ as follows
 		\[
 		\min_{f\in\mathcal{F}}\frac{1}{N}\sum_{i=1}^{N}L(Y_i,f(X_i))+\lambda J(f),
 		\]
@@ -157,13 +158,13 @@ There are some other possible objectives involving more distribution information
 \[
 \tilde{f}=\arg\min_{f\in\mathcal{F}}\left(\mathrm{E}[L(Y,f(X))]+c_1\mathrm{Var}[L(Y,f(X))]+c_2 \mathtt{Extreme Value Risk}[L(Y,f(X))]\right).
 \]
-More generally, suppose $\mathrm{Div}(P_1,P_2)$ is a non-negative function measuring the difference between the two distribution $P_1$ and $P_2$. We may expect to find a conditional distribution $\hat{P}(y|x)$ to minimize $$\mathrm{E}[\mathrm{Div}(P(Y|X),\hat{P}(Y|X)].$$
+More generally, suppose $\mathrm{Div}(P_1,P_2)$ is a non-negative function measuring the difference between the two distribution $P_1$ and $P_2$. We may expect to find a conditional distribution $\hat{P}(y|x)$ to minimize $$\mathrm{E}[\mathrm{Div}(P(Y|X),\hat{P}(Y|X))].$$
 
 
 		
 	
-\section{Find the Form of Optimal Decision Function }
-Supposing $\mathcal{F}$ is a collection of all functions $f:D\to G$, let's calculate the forms of the optimal decision function $\tilde{f}$ in common cases.
+\section{Optimal Decision Functions in Special Cases}
+Supposing $\mathcal{F}$ is a collection of all functions $f:D\to G$, let's calculate the forms of the optimal decision function $\tilde{f}$ for some specific loss functions.
 \subsection{Loss function for quantitative output variables: squared error loss}
 Let $Y\in\mathbb{R}$ be a quantitative variable. And we take the most
 common and convenient loss function, squared error loss
@@ -332,7 +333,7 @@ R(f) \le \widehat{R}(f)+\sqrt{\frac{8}{N} \ln \frac{4 \Pi_{\mathcal{F}}(2N)}{\de
 with probability $\ge 1-\delta$.
 \end{theorem}
 \begin{corollary}
-	Suppose that the training set $T=\{(X_1,Y_1),(X_2,Y_2),\cdots,(X_{N},Y_{N})\}$ where $X_i\in D\subseteq\mathbb{R}^p$ and $Y_i\in\{+1,-1\}$ is  independently generated from the distribution $P(x,y)$. If the 0-1 loss function is taken, then for any $\mathcal{F}\subseteq\{+1,-1\}^D$, $f\in\mathcal{F}$, $N\ge d_{VC}$, tolerance $\delta > 0$,
+	Suppose that the training sample $\mathbf{S}_N=\{(X_1,Y_1),(X_2,Y_2),\cdots,(X_{N},Y_{N})\}$ where $X_i\in D\subseteq\mathbb{R}^p$ and $Y_i\in\{+1,-1\}$ is  independently generated from the distribution $P(x,y)$. If the 0-1 loss function is taken, then for any $\mathcal{F}\subseteq\{+1,-1\}^D$, $f\in\mathcal{F}$, $N\ge d_{VC}$, tolerance $\delta > 0$,
 	\[
 	R(f) \le \widehat{R}(f)+\sqrt{\frac{8 d_{VC} \ln \frac{2 \mathrm{e} N}{d_{VC}}+8 \ln \frac{4}{\delta}}{N}}
 	\]
@@ -385,9 +386,9 @@ Note that when $N_1$, $N_2$ are sufficiently large these inequalities hold for e
 \section{tradeoff}
 The generalization error bound $\widehat{R}(f)+\varepsilon(d_{VC}, N, \delta)$ helps up understand what is "overfitting" and why we can use structural risk minimization to get over it. 
 
-Assume $N$ is relatively small and $\hat{f}=\arg\min_{f\in\mathcal{F}}\widehat{R}(f).$ By increasing $d_{VC}$ endlessly, we can extend the hypothesis space $\mathcal{F}$ and consequently reduce or at least maintain the empirical error $\widehat{R}(\hat{f})$ all along. However, the cost it brings is a greater $\varepsilon(d_{VC}, N, \delta)$, since $\varepsilon(d_{VC}, N, \delta)$ is strictly increasing in $d_{VC}$. Noticing $\widehat{R}(\hat{f})$ cannot be less than 0 and $\varepsilon(d_{VC}, N, \delta)\to\infty$ as $d_{VC}\to\infty$, we can assert when $d_{VC}$ is sufficiently large, generalization error bound will be also increasing in $d_{VC}$. As a result, although we can find a function $\hat{f}$ with a perfect performance on the training set, the generalization ability of $\hat{f}$ can be very poor. That is to say, $\hat{f}$ is likely to perform badly on the sample out of the training set. The term "overfitting" exactly refers to such a case in which the selected function $\hat{f}$ has a quite small empirical error along with a tremendous generalization error. 
+Assume $N$ is fixed and $\hat{f}=\arg\min_{f\in\mathcal{F}}\widehat{R}(f).$ By increasing $d_{VC}$ endlessly, we can extend the hypothesis space $\mathcal{F}$ and consequently reduce or at least maintain the empirical error $\widehat{R}(\hat{f})$ all along. In other words, $\widehat{R}(\hat{f})$ is non-increasing in $d_{VC}$. However, the cost it brings is a greater $\varepsilon(d_{VC}, N, \delta)$, since $\varepsilon(d_{VC}, N, \delta)$ is strictly increasing in $d_{VC}$. Noticing $\widehat{R}(\hat{f})$ cannot be less than 0 and $\varepsilon(d_{VC}, N, \delta)\to\infty$ as $d_{VC}\to\infty$, we can assert that when $d_{VC}$ is sufficiently large, generalization error bound will be also increasing in $d_{VC}$. As a result, although we can find a function $\hat{f}$ with a perfect performance on the training set, the generalization ability of $\hat{f}$ can be very poor. That is to say, $\hat{f}$ is likely to perform badly on the sample out of the training set. The term "overfitting" exactly refers to such a case in which the selected function $\hat{f}$ has a quite small empirical error along with a tremendous generalization error. 
 
-Therefore, we have a tradeoff: more complex models help $\widehat{R}(f)$
+Therefore, we have a tradeoff: more complex models help reduce $\widehat{R}(f)$
 and hurt $\varepsilon(d_{VC}, N, \delta)$. The optimal model is a compromise that minimizes a combination of the two terms. Now it is clear to see why a penalty term is introduced into the structural risk minimization. It takes the size of hypothesis space $\mathcal{F}$ or equivalently the complexity of candidate functions into consideration. Thus when $N$ is limited, this method promisingly leads to a smaller generalization error.
 
 
@@ -696,9 +697,82 @@ where
 
 \section{Convolutional neural network}
 
-
+\[
+\mathtt{Conv2d}(X_{C_{\mathrm{in}},H,W})=b_{C_{\mathrm{out}}}\otimes 1_{H,W}+\mathrm{Weight}_{C_{\mathrm{out}},S*S}\star X_{C_{\mathrm{in}},H,W}
+\]
 \chapter*{Appendix}
 \section*{1. Hoeffding's inequality} 
+\begin{lemma}
+	Let $X$ be a random variable. Then
+	\[
+	\mathrm{P}(X>\epsilon) \leq \inf _{t \geq 0} \frac{\mathrm{E}\left[e^{t X}\right]}{e^{t\epsilon}}.
+	\]
+\end{lemma}
+\begin{proof}
+	For any $t>0$, we have
+	\[
+	\mathrm{P}(X>\epsilon)
+	=\mathrm{P}\left(e^{tX}>e^{t\epsilon}\right)
+	=\mathrm{P}\left(\frac{e^{t X}}{e^{t\epsilon}}>1\right) =\mathrm{E}\left(\mathbbm{1}\left\{\frac{e^{t X}}{e^{t\epsilon}}>1\right\}\right)
+	\leq\frac{\mathrm{E}\left[e^{t X}\right]}{e^{t\epsilon}}.
+	\]
+	Notice that if $t=0$, 
+	\[
+	\frac{\mathrm{E}\left[e^{t X}\right]}{e^{t\epsilon}}=1\ge\mathrm{P}(X>\epsilon). 
+	\]
+	Thus we complete the proof.
+	
+\end{proof}
 
+\begin{lemma}
+	Suppose $X$ is a random variable such that $a \leq X \leq b$. Then for $t\in\mathbb{R}$,
+	\[
+	\mathrm{E}\left[e^{t X}\right]\leq e^{t \mu} e^{\frac{t^{2}(b-a)^{2}}{8}}
+	\]
+	where $\mu=\mathbb{E}[X]$.
+\end{lemma}
 
+\begin{proof} 
+Since $f(x)=e^{tx}$ is convex, by Jensen's inequality we get for $x\in[a,b]$
+\[
+e^{t x} \leq \frac{b-x}{b-a} e^{t a}+\frac{x-a}{b-a} e^{t b}.
+\]
+Let $Y$ be a random variable such that $\mathrm{E}[Y]=0$ and let $\lambda=-a/(b-a)$, we have
+\[
+\mathrm{E}[e^{t Y}] \leq \mathrm{E}\left[\frac{b-Y}{b-a} e^{ta}+\frac{Y-a}{b-a} e^{t b}\right]=\frac{be^{t a}-ae^{t b}}{b-a} =(1-\lambda) e^{-t\lambda(b-a)}+\lambda e^{t(1-\lambda)(b-a)}.
+\]
+Suppose $u=t(b-a)$ and
+\[
+g(u)=\ln\left((1-\lambda) e^{-\lambda u}+\lambda e^{(1-\lambda)u}\right)=-\lambda u+\ln\left(1-\lambda+\lambda e^u \right),\qquad u>0.
+\]
+Taylor's theorem implies that there exists $\xi\in [0,u]$ such that
+\[
+g(u)=g(0)+g^{\prime}(0) u+\frac{g^{\prime \prime}(\xi)}{2 !} u^{2}=\frac{(1-\lambda)\lambda e^\xi}{2(1-\lambda+\lambda e^\xi )^2}u^2.
+\]
+Since 
+\[
+(1-\lambda+\lambda e^\xi )^2\ge 4(1-\lambda)\lambda e^\xi\implies  \frac{4(1-\lambda)\lambda e^\xi}{(1-\lambda+\lambda e^\xi )^2}\le1,
+\]
+we have $g(u)\le\frac{1}{8}u^2$. Thus we have 
+\[
+\mathrm{E}[e^{t Y}]\le e^{g(u)}\le e^{\frac{1}{8}u^2}=e^{\frac{t^2(b-a)^2}{8}}.
+\]
+Take $Y=X-\mu$, we can show that
+\[
+\mathrm{E}\left[e^{t X}\right]\leq e^{t \mu} e^{\frac{t^{2}(b-a)^{2}}{8}}.
+\]
+\end{proof}
+\begin{theorem}[Hoeffding's Inequality]
+	Let $X_{1}, \dots, X_{n}$ be i.i.d.random variables such that $\mathbb{E}\left(X_{i}\right)=\mu$ and $a \leq X_{i} \leq b$. Then, for any $\epsilon>0$
+	\[
+	\mathrm{P}\left(\left|\bar{X}_{n}-\mu\right| \geq \epsilon\right) \leq 2 e^{-2 n \epsilon^{2} /(b-a)^{2}}
+	\]
+\end{theorem}
+
+\begin{proof}
+	Since $a \leq X_{i} \leq b$, we have $a -\mu\leq X_i-\mu \leq b-\mu$ and
+	\[
+	\mathrm{P}(X_i-\mu\geq \epsilon) \leq \inf _{t \geq 0} \frac{\mathrm{E}\left[e^{t\left(X_i-\mu\right)}\right]}{e^{t\epsilon}}\le\inf _{t \geq 0} \frac{e^{\frac{t^{2}(b-a)^{2}}{8}}}{e^{t\epsilon}}=e^{\tfrac{-4\epsilon}{(b-a)^2}}.
+	\]
+\end{proof}
 \end{document}
